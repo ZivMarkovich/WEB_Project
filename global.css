@@ -1,0 +1,219 @@
+:root {
+    /* הגדרת משתני הצבעים */
+    --light-mint: #BBE1C3;
+    --soft-green: #A7CDBD;
+    --olive-green: #869D7A;
+    --light-brown: #91785D;
+    --dark-brown: #8B5D33;
+    
+    /* הגדרות גלובליות לפונטים */
+    --main-font: sans-serif; 
+}
+
+/* איפוס בסיסי */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--main-font);
+    background-color: var(--light-mint); 
+    color: var(--olive-green); 
+    line-height: 1.6;
+    text-align: right; 
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex-grow: 1;
+    width: 100%;
+}
+
+a {
+    color: var(--olive-green);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: var(--dark-brown);
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* --- עיצוב HEADER --- */
+.main-header {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 15px 30px;
+    background-color: var(--soft-green); 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); 
+    width: 100%;
+}
+
+.header-right-side {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo a img {
+    height: 130px; 
+    width: 130px;
+    border-radius: 50%; 
+    border: 3px solid var(--dark-brown);
+}
+
+/* אייקוני רשתות חברתיות */
+.social-icons {
+    display: flex;
+    gap: 15px;
+    
+}
+
+.social-icons img {
+    height: 45px; 
+    width: 45px;
+    border-radius: 50%;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+}
+
+.social-icons img:hover {
+    opacity: 1;
+}
+
+/* --- ניווט ראשי (Main Navigation) --- */
+.main-nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 20px; 
+}
+
+.main-nav{
+    flex-grow: 1;
+    text-align: center;
+}
+/* דרישה 7: כפתורים מעוצבים */
+.main-nav a {
+    font-weight: bold;
+    font-size: 1.1rem;
+    padding: 8px 20px;
+    border-radius: 8px;
+    background-color: var(--olive-green); /* צבע כפתור */
+    color: white; /* טקסט לבן */
+    border: 1px solid var(--dark-brown);
+    transition: all 0.3s ease;
+}
+
+.main-nav a:hover {
+    background-color: var(--dark-brown);
+    color: var(--light-mint);
+}
+
+/* --- Dropdown (קטלוג) --- */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none; /* מוסתר כברירת מחדל */
+    position: absolute;
+    top: 100%; 
+    right: 0; 
+    background-color: var(--light-mint);
+    border: 1px solid var(--olive-green);
+    min-width: 160px;
+    z-index: 100; /* דרישה 5: שיהיה מעל אלמנטים אחרים */
+    padding: 10px 0;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* דרישה 5: נפתח רק כשעוברים עם העכבר */
+.dropdown:hover .dropdown-menu {
+    display: block; 
+}
+
+.dropdown-menu li a {
+    display: block;
+    padding: 10px 15px;
+    white-space: nowrap;
+    /* ביטול עיצוב הכפתור בתוך התפריט הנפתח כדי שיראה נקי */
+    background-color: transparent; 
+    color: var(--olive-green);
+    border: none;
+    border-radius: 0;
+}
+
+.dropdown-menu li a:hover {
+    background-color: var(--soft-green);
+    color: var(--dark-brown);
+}
+
+/* --- עיצוב FOOTER --- */
+.main-footer {
+    background-color: var(--dark-brown); 
+    color: var(--light-mint); 
+    padding: 30px 20px;
+    text-align: center;
+    font-size: 1rem;
+    margin-top: auto; /* דרישה 4: וידוא הצמדה לתחתית */
+    width: 100%;
+}
+
+.footer-social {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; 
+    gap: 30px; /* דרישה 6: מרווחים גדולים יותר */
+    margin-bottom: 15px;
+}
+
+.footer-social a {
+    color: var(--light-mint);
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.footer-social a:hover {
+    color: var(--soft-green); 
+}
+
+/* --- רספונסיביות --- */
+@media (max-width: 900px) {
+    .main-header {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .header-right-side {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .main-nav ul {
+        justify-content: center;
+        flex-wrap: wrap; 
+    }
+}
+
+html, body {
+    /* הכלל החשוב: מונע תוכן מלחרוג מרוחב המכשיר */
+    overflow-x: hidden; 
+    
+    /* מוודא שאלמנט הבסיס תופס 100% מהרוחב הזמין */
+    width: 100%; 
+}
