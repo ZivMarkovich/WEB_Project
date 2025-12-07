@@ -1,13 +1,12 @@
 :root {
     /* הגדרת משתני הצבעים */
-    --light-mint: #BBE1C3;
-    --soft-green: #A7CDBD;
     --olive-green: #869D7A;
-    --light-brown: #91785D;
     --dark-brown: #8B5D33;
+    --bottle-green: #0a5c0a;
+    --main-font: "Open Sans", sans-serif;
+
     
-    /* הגדרות גלובליות לפונטים */
-    --main-font: sans-serif; 
+   
 }
 
 /* איפוס בסיסי */
@@ -19,7 +18,6 @@
 
 body {
     font-family: var(--main-font);
-    background-color: var(--light-mint); 
     color: var(--olive-green); 
     line-height: 1.6;
     text-align: right; 
@@ -34,7 +32,7 @@ main {
 }
 
 a {
-    color: var(--olive-green);
+    color: var(--);
     text-decoration: none;
     transition: color 0.3s;
 }
@@ -58,28 +56,98 @@ img {
     justify-content: space-between; 
     align-items: center; 
     padding: 15px 30px;
-    background-color: var(--soft-green); 
+    background-color: var(--olive-green); 
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); 
     width: 100%;
 }
 
-.header-right-side {
-    display: flex;
-    align-items: center;
-    gap: 20px;
+.logo a img {
+    height: 110px; 
+    width: 110px;
+    border-radius: 50%; 
+    margin-right: 200px;
 }
 
-.logo a img {
-    height: 130px; 
-    width: 130px;
-    border-radius: 50%; 
-    border: 3px solid var(--dark-brown);
+
+/* --- ניווט ראשי (Main Navigation) --- */
+.main-nav > ul {
+    display: flex;
+    justify-content: center;
+    gap: 50px; 
+}
+
+.main-nav{
+    flex-grow: 1;
+    text-align: center;
+}
+
+.main-nav a {
+    font-weight: bold;
+    font-size: 1.25rem;
+    padding: 8px 20px;
+    border-radius: 8px;
+    color: white; 
+    transition: all 0.3s ease;
+}
+
+.main-nav a:hover {
+    background-color: whitesmoke;
+    color: black;
+}
+
+/* --- Dropdown (קטלוג) --- */
+.dropdown {
+    position: relative;
+    }
+
+.dropdown-menu {
+    
+    display: none; 
+    position: absolute;
+    top: 38px; 
+    background-color: white;
+    border: 1px solid var(--olive-green);
+    min-width: 160px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    right: -30px;
+
+}
+
+
+.dropdown:hover .dropdown-menu {
+    display: block; 
+}
+
+.dropdown-menu li a {
+    font-size: 1rem;
+    display: block;
+    padding: 10px 15px;
+    white-space: nowrap;
+    background-color: transparent; 
+    color: var(--olive-green);
+    border: none;
+    border-radius: 0;
+}
+
+.dropdown-menu li a:hover {
+    background-color: whitesmoke;
+    color: black;
+}
+.dropdown-menu li {
+    border-bottom: 1px solid var(--olive-green);
+}
+
+.dropdown-menu li:last-child {
+    border-bottom: none;
 }
 
 /* אייקוני רשתות חברתיות */
 .social-icons {
     display: flex;
-    gap: 15px;
+    gap: 20px;
+    margin-left: 200px;
+    
     
 }
 
@@ -95,78 +163,10 @@ img {
     opacity: 1;
 }
 
-/* --- ניווט ראשי (Main Navigation) --- */
-.main-nav ul {
-    display: flex;
-    justify-content: center;
-    gap: 20px; 
-}
-
-.main-nav{
-    flex-grow: 1;
-    text-align: center;
-}
-/* דרישה 7: כפתורים מעוצבים */
-.main-nav a {
-    font-weight: bold;
-    font-size: 1.1rem;
-    padding: 8px 20px;
-    border-radius: 8px;
-    background-color: var(--olive-green); /* צבע כפתור */
-    color: white; /* טקסט לבן */
-    border: 1px solid var(--dark-brown);
-    transition: all 0.3s ease;
-}
-
-.main-nav a:hover {
-    background-color: var(--dark-brown);
-    color: var(--light-mint);
-}
-
-/* --- Dropdown (קטלוג) --- */
-.dropdown {
-    position: relative;
-}
-
-.dropdown-menu {
-    display: none; /* מוסתר כברירת מחדל */
-    position: absolute;
-    top: 100%; 
-    right: 0; 
-    background-color: var(--light-mint);
-    border: 1px solid var(--olive-green);
-    min-width: 160px;
-    z-index: 100; /* דרישה 5: שיהיה מעל אלמנטים אחרים */
-    padding: 10px 0;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-/* דרישה 5: נפתח רק כשעוברים עם העכבר */
-.dropdown:hover .dropdown-menu {
-    display: block; 
-}
-
-.dropdown-menu li a {
-    display: block;
-    padding: 10px 15px;
-    white-space: nowrap;
-    /* ביטול עיצוב הכפתור בתוך התפריט הנפתח כדי שיראה נקי */
-    background-color: transparent; 
-    color: var(--olive-green);
-    border: none;
-    border-radius: 0;
-}
-
-.dropdown-menu li a:hover {
-    background-color: var(--soft-green);
-    color: var(--dark-brown);
-}
-
 /* --- עיצוב FOOTER --- */
 .main-footer {
     background-color: var(--dark-brown); 
-    color: var(--light-mint); 
+    color: white; 
     padding: 30px 20px;
     text-align: center;
     font-size: 1rem;
@@ -183,13 +183,13 @@ img {
 }
 
 .footer-social a {
-    color: var(--light-mint);
+    color: white;
     font-weight: bold;
     font-size: 1.1rem;
 }
 
 .footer-social a:hover {
-    color: var(--soft-green); 
+    color: black; 
 }
 
 /* --- רספונסיביות --- */
@@ -197,11 +197,6 @@ img {
     .main-header {
         flex-direction: column;
         gap: 20px;
-    }
-    
-    .header-right-side {
-        flex-direction: column;
-        gap: 15px;
     }
 
     .main-nav ul {
