@@ -43,30 +43,47 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // פונקציה להדלקת הקישור הפעיל (active) בתפריט הראשי
-    function highlightActiveLink(headerElement, currentPath) {
-        const navLinks = headerElement.querySelectorAll('.main-nav a');
+function highlightActiveLink(headerElement, currentPath) {
+    const navLinks = headerElement.querySelectorAll('.main-nav a');
+    
+    // ניקוי הנתיב הנוכחי: '/products/item1.html' הופך ל- 'products/item1.html'
+    const cleanedCurrentPath = currentPath.replace(/^\//, '').toLowerCase();
+
+    navLinks.forEach(link => {
+        const linkPath = link.getAttribute('href').replace(/^\//, '').toLowerCase();
         
-        navLinks.forEach(link => {
-            const linkPath = link.getAttribute('href').toLowerCase();
-            
-            // בדיקה אם נתיב הקישור זהה או נמצא בנתיב הנוכחי (למשל /about תואם ל /about.html)
-            // נשתמש ב-includes כדי להתאים גם לקישורי קטלוג פנימיים (/plants, /tools)
-            if (currentPath.includes(linkPath) && linkPath !== '/') {
-                 link.classList.add('active');
-            } else if (currentPath === '/' && linkPath.includes('home')) {
-                // טיפול מיוחד בדף הבית (אם הנתיב הוא '/')
-                link.classList.add('active');
+        // 1. איפוס: ודא שאין active class שנשאר מהטענה קודמת (למרות שה-HTML מוזרק מחדש)
+        link.classList.remove('active');
+        
+        let isLinkActive = false;
+
+        // בדיקה 1: התאמה מלאה של הנתיב (למשל: 'about.html' == 'about.html')
+        if (cleanedCurrentPath === linkPath) {
+            isLinkActive = true;
+        } 
+        // בדיקה 2: טיפול בדף הבית (Home)
+        else if (cleanedCurrentPath === '' && (linkPath === 'index.html' || linkPath === '')) {
+            isLinkActive = true;
+        }
+        // בדיקה 3: התאמה סקציונלית (עבור קטלוג/דרופדאון)
+        // אם הנתיב הנוכחי מתחיל בנתיב הקישור. לדוגמה: 'products/item1.html' מתחיל ב- 'products'.
+        else if (linkPath.length > 1 && cleanedCurrentPath.startsWith(linkPath)) {
+            isLinkActive = true;
+        }
+
+        if (isLinkActive) {
+            link.classList.add('active');
+        }
+
+        // 4. לוגיקת הדרופדאון (הדלקת ההורה) - נשארת כפי שהייתה, כי היא תלויה בבדיקות 1-3.
+        if (link.closest('.dropdown-menu') && link.classList.contains('active')) {
+            const dropdownToggle = link.closest('.dropdown').querySelector('.dropdown > a');
+            if (dropdownToggle) {
+                dropdownToggle.classList.add('active');
             }
-             
-            // אם הקישור הפעיל הוא בתוך תפריט נגלל (כמו plants), נדליק גם את כפתור הקטלוג הראשי.
-            if (link.closest('.dropdown-menu') && link.classList.contains('active')) {
-                const dropdownToggle = link.closest('.dropdown').querySelector('.dropdown > a');
-                if (dropdownToggle) {
-                    dropdownToggle.classList.add('active');
-                }
-            }
-        });
-    }
+        }
+    });
+}
 
     // טעינת ההאדר
     loadComponent('header-placeholder', HEADER_PATH);
