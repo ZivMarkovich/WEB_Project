@@ -1,0 +1,290 @@
+/* ################################################################### */
+/* ABOUT PAGE SPECIFIC LAYOUT AND STYLES */
+/* ################################################################### */
+
+/* Hero Intro - באנר קטן */
+.hero-intro {
+    padding: 40px 50px 0; /* הסרת Padding תחתון כדי שה-overlay ישלוט בגובה */
+    background-color: transparent; /* הרקע הלבן מיותר */
+}
+
+.banner-overlay {
+    position: relative; /* ה-Container הראשי מחזיק את המיקום המוחלט */
+    width: 100%;
+    /* הגבהת הבאנר (כדי שיהיה "ארוך יותר") */
+    height: 400px; 
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.banner-overlay img {
+    /* התמונה תכסה את כל שטח ה-Container */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.overlay-text {
+    /* מיקום מוחלט מעל התמונה */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* ממורכז אנכית */
+    align-items: center; /* ממורכז אופקית */
+    text-align: center;
+    /* הוספת שכבת גוון קלה לשפר את קריאות הטקסט */
+    background-color: rgba(0, 0, 0, 0.2); 
+}
+
+.overlay-text h1 {
+    font-size: 40px; 
+    color: white; /* צבע לבן לכיתוב על רקע כהה/ירוק */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* צל קל לשיפור הקריאות */
+    margin: 0; /* הסרת מרווחים פנימיים מיותרים */
+}
+
+/* Company Overview - מי אנחנו */
+.company-overview {
+    padding: 40px 10%;
+    text-align: right;
+    border-bottom: 1px solid #ddd;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.company-overview h2 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.company-overview p {
+    max-width: 800px;
+    margin: 0 auto 20px;
+    font-size: 1.1em;
+    text-align: center;
+    color: #333;
+}
+
+
+
+/* ################################################################### */
+/* Team Section - הצוות */
+/* ################################################################### */
+
+.team-section {
+    padding: 60px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.team-section h2 {
+    margin-bottom: 40px;
+}
+
+.team-grid {
+    display: grid;
+    /* 3 עמודות על מסך רחב, משתנה בהתאם לגודל המינימלי */
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+
+.team-member-card {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    /* הגדלת הכרטיס והצל בריחוף */
+    cursor: default;
+}
+
+.team-member-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.team-member-card img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; 
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 3px solid var(--color-accent); /* מסגרת ירוקה בהירה */
+}
+
+.team-member-card h3 {
+    margin-bottom: 5px;
+    font-size: 1.4em;
+    color: var(--color-primary);
+}
+
+.team-member-card .position {
+    color: var(--color-accent);
+    font-weight: bold;
+    font-size: 1em;
+    margin-bottom: 10px;
+}
+
+.team-member-card .bio {
+    font-size: 0.95em;
+    color: #555;
+}
+
+/* ################################################################### */
+/* FAQ Section - שאלות נפוצות (מבנה לשוניות/אקורדיון) */
+/* ################################################################### */
+
+.faq-section {
+    padding: 60px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* לשוניות (Tabs) - לניווט בין קהלי היעד */
+.faq-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.tab-button {
+    background-color: var(--color-background);
+    color: var(--color-primary);
+    padding: 10px 20px;
+    border: 2px solid var(--color-primary);
+    border-radius: 20px; /* צורה עגולה יותר */
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    white-space: nowrap; /* למניעת שבירת שורה בכפתור */
+}
+
+/* עיצוב הלשונית הפעילה */
+.tab-button.active {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    border-color: var(--color-primary);
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+}
+
+.tab-button:hover:not(.active) {
+    background-color: #eee;
+    border-color: var(--color-accent);
+}
+
+/* מכיל את פריטי האקורדיון */
+.accordion-container {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: right;
+    
+    /* הוספת height ו-visibility ל-transition */
+    transition: opacity 0.3s ease-out, visibility 0.3s ease-out, height 0.3s ease-out;
+    
+    /* הגדרות בסיס */
+    visibility: visible;
+    height: auto; /* מאפשר גובה דינמי */
+    opacity: 1;
+}
+
+/* הקלאס 'hidden' מוסתר על ידי ה-JS, אך נגדיר אותו גם ב-CSS לשלמות */
+.accordion-container.hidden {
+    opacity: 0;
+    height: 0;
+    visibility: hidden;
+    padding: 0; 
+    margin-bottom: 0; 
+}
+
+/* פריט FAQ - גוף האקורדיון */
+.faq-item {
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+}
+
+.accordion-header {
+    width: 100%;
+    padding: 18px 25px;
+    background-color: #fff;
+    border: none;
+    text-align: right;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--color-primary);
+}
+
+/* סימן פלוס/מינוס */
+.accordion-header::after {
+    content: '+';
+    font-size: 1.5em;
+    transition: transform 0.3s;
+    line-height: 1; /* יישור אנכי טוב יותר */
+    color: var(--color-accent);
+}
+
+.accordion-header[aria-expanded="true"]::after {
+    content: '−';
+    transform: rotate(180deg);
+}
+
+/* תוכן האקורדיון - מוסתר כברירת מחדל */
+.accordion-content {
+    padding: 0 25px;
+    max-height: 0; /* ה-JS ישלוט בזה */
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    background-color: #f9f9f9;
+}
+
+.accordion-content p {
+    padding: 15px 0;
+    margin: 0;
+    color: #555;
+    font-size: 1em;
+}
+
+/* ################################################################### */
+/* Media Queries לריספונסיביות */
+/* ################################################################### */
+
+@media (min-width: 768px) {
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .company-overview {
+        padding: 30px 5%;
+    }
+    .company-overview p {
+        font-size: 1em;
+    }
+    .faq-tabs {
+        /* מאפשר שבירת שורה בטלפונים */
+        flex-direction: row; 
+        gap: 8px;
+    }
+    .accordion-header {
+        font-size: 1em;
+        padding: 15px 20px;
+    }
+}
