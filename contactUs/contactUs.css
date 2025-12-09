@@ -2,45 +2,73 @@
    עמוד צור קשר – CSS
 ================================ */
 
-/* רקע כללי לעמוד צור קשר */
-.contact-page {
-    background-color: white; /* כמו ה-Global שלכם */
-    padding-bottom: 40px;
-}
+
 
 /* ------ HERO בעמוד צור קשר ------ */
 
-.hero-intro.contact-intro {
-    width: 100%;
-    margin: 20px 0 40px 0; 
+/* ------ HERO בעמוד צור קשר (אותו סטייל כמו ABOUT US) ------ */
+
+/* ------ HERO בעמוד צור קשר (תמונה כמו ABOUTUS, טקסט מתחת) ------ */
+
+.hero-intro {
+    padding: 40px 50px 0;
+    background-color: transparent;
     text-align: center;
 }
 
-/* קונטיינר של התמונה */
-.hero-intro .banner-image {
-    width: 100%;
-    max-height: 350px;
-    overflow: hidden;
-    margin-bottom: 20px;
+.hero-intro.contact-intro {
+    margin-bottom: 40px;
 }
 
-/* תמונת HERO */
-.hero-intro .banner-image img {
+/* קונטיינר לתמונה כמו ABOUTUS */
+.hero-intro .banner-overlay {
+    position: relative;
     width: 100%;
-    height: 350px;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.hero-intro .banner-overlay img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     display: block;
 }
 
-/* כותרת ופסקה */
+/* כותרת ופסקה מתחת לתמונה */
 .hero-intro h1 {
-    font-size: 2rem;
+    font-size: 2.2rem;
     color: var(--dark-brown);
-    margin-bottom: 10px;
+    margin: 20px 0 10px;
 }
 
 .hero-intro .intro-text {
     font-size: 1rem;
+    color: var(--dark-brown);
+}
+.overlay-text {
+    /* מיקום מוחלט מעל התמונה */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* ממורכז אנכית */
+    align-items: center; /* ממורכז אופקית */
+    text-align: center;
+    /* הוספת שכבת גוון קלה לשפר את קריאות הטקסט */
+    background-color: rgba(0, 0, 0, 0.2); 
+}
+
+.overlay-text h1 {
+    font-size: 40px; 
+    color: white; /* צבע לבן לכיתוב על רקע כהה/ירוק */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* צל קל לשיפור הקריאות */
+    margin: 0; /* הסרת מרווחים פנימיים מיותרים */
 }
 
 /* ---------------------------------------

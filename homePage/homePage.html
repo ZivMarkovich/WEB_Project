@@ -8,56 +8,148 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../global.css">
-    </head>
+    <link rel="stylesheet" href="../homePage/homePage.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
 
 <body>
 
-    <header class="main-header">
-        
-        
-            <div class="logo">
-                <a href="/homePage/homePage.html"><img src="/images/Logo.jpeg" alt="Logo"></a>
+   <div id="header-placeholder"></div>
+
+   <main>
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1>הגינה שתמיד חלמתם עליה - מתחילה לצמוח כאן</h1>
+                <a href="contact.html" class="cta-button primary-cta">צרו קשר</a>
             </div>
+            <div class="hero-image">
+                <img src="/WEB_Project/homePage/images_HP/garden hero.jpg" alt="גינה עם צמחים וכלי גינון">
+            </div>
+        </section>
 
-        <nav class="main-nav">
-            <ul>
-                <li><a href="/about">עלינו</a></li>
-                <li><a href="/services">שירותים</a></li>
+        <section class="trust-section centered-content">
+            <h2>למה כדאי לכם לבחור בנו?</h2>
+            <p class="company-intro">
+                "צומחים יחד" היא לא רק חברת גינון, אלא שותפים אמיתיים להגשמת החזון שלכם. 
+                אנו מציעים מומחיות מוכחת בתכנון וביצוע כל תחומי הנוף – 
+                החל משלב הרעיון, דרך תכנון מדויק המגובה בהדמיות תלת-ממדיות (3D), ועד לביצוע מושלם בשטח. 
+                אנו מחויבים לאמינות, מקצועיות וליחס אישי שיבטיח שהגינה שלכם תהיה לאורך שנים מקור לגאווה.
+            </p>
+            <a href="/WEB_Project/aboutUs/aboutUs.html" class="secondary-button">הכירו אותנו לעומק</a>
+        </section>
 
-                <li class="dropdown">
-                    <a href="/catalog">קטלוג ⌵</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="/plants">צמחים</a></li>
-                        <li><a href="/tools">כלי עבודה</a></li>
-                        <li><a href="/accessories"> אביזרים נלווים</a></li>
-                    </ul>
-                </li>
-                <li><a href="/contact">צור קשר</a></li>
+        <section class="before-after-portfolio">
+            <h2>העבודות שלנו מדברות בעד עצמן</h2>
+            <div class="portfolio-slider-wrapper">
+                <button class="portfolio-prev-btn" aria-label="פרויקט קודם">❮</button> 
+
+                <div class="portfolio-slider">
+
+                    <figure class="before-after-item" data-project-id="201">
+                        <div class="image-wrapper">
+                            
+                            <div class="image-pair">
+                                <div class="image-container">
+                                    <div class="image-label">לפני</div> <img src="images_HP/גינה - לפני.jpeg" alt="Garden Before" class="img-before">
+                                </div>
+                                
+                                <div class="image-container">
+                                    <div class="image-label">אחרי</div> <img src="images_HP/גינה- אחרי.jpeg" alt="Garden afetr" class="img-after">
+                                </div>
+                            </div>
+
+                        </div>
+                    </figure>
+
+                    <figure class="before-after-item" data-project-id="202">
+                        <div class="image-wrapper">
+                            
+                            <div class="image-pair">
+                                <div class="image-container">
+                                    <img src="images_HP/אדנית.jpeg" alt="Garden Before" class="img-before">
+                                </div>
+                                
+                                <div class="image-container">
+                                    <img src="images_HP/אדנית 2.jpeg" alt="Garden afetr" class="img-after">
+                                </div>
+                            </div>
+
+                        </div>
+                    </figure>
+                </div>
+                <button class="portfolio-next-btn" aria-label="פרויקט הבא">❯</button>
                 
-            </ul>
-        </nav>
-
-        <div class="social-icons">
-                <a href="https://www.instagram.com/growing_together268/" target="_blank"><img src="/images/instagram.jpg" alt="Instagram"></a>
-                <a href="https://easy.co.il/page/10147059" target="_blank"><img src="/images/easy.jpeg" alt="Easy"></a>
-                <a href="https://www.tiktok.com/@growingtogether_officia" target="_blank"><img src="/images/tiktok.jpeg" alt="TikTok"></a>
-                <a href="https://www.facebook.com/share/1Ake8LzpSA/?mibextid=wwXIfr" target="_blank"><img src="/images/facebook.jpeg" alt="Facebook"></a>
             </div>
-    </header>
+        </section>
 
-   
+        <section class="testimonials-section">
+            <h2>מה הלקוחות שלנו אומרים?</h2>
+            <div class="slider-wrapper">
 
-    <footer class="main-footer">
-        <div class="footer-social">
-            <a href="https://www.instagram.com/growing_together268/" target="_blank">Instagram</a>
-            <a href="https://easy.co.il/page/10147059" target="_blank">Easy</a>
-            <a href="https://www.tiktok.com/@growingtogether_officia" target="_blank">TikTok</a>
-            <a href="https://www.facebook.com/share/1Ake8LzpSA/?mibextid=wwXIfr" target="_blank">Facebook</a>
-            <a href="https://wa.me/972587217734?text=היי,%20הגעתי%20דרך%20האתר.%20אשמח%20לקבל%20מידע%20נוסף%20" target="_blank"> WhatsApp </a>
-            
-        </div>
-        <p>© צומחים יחד - כל הזכויות שמורות.</p>
-    </footer>
+                <button class="prev-btn" aria-label="ביקורת קודמת">❮</button>
+                <div class="testimonials-slider">
+                    
+                    <blockquote class="testimonial-card" data-testimonial-id="301">
+                        <p class="quote">
+                            "צוות מהמם! שירות מכל הלב, חביבים ואדיבים. מחיר הוגן, שקיפות מלאה; עומדים בזמנים. הפתעה לטוב! גילוי נאות, הם הגננים שלי כבר תקופה ארוכה ואני תמיד שמח להמליץ עליהם, כל החברים שלי מרוצים מהם. בחורים צעירים ישראליים, מלח הארץ."
+                        </p>
+                        <cite class="reviewer-name">Tomer B.</cite>
+                        <div class="source">⭐ 5.0 (מתוך Easy)</div>
+                    </blockquote>
 
+                    <blockquote class="testimonial-card" data-testimonial-id="302">
+                        <p class="quote">
+                            "אנשים רציניים ועושים הכל באהבה ובמקצועיות מדהימה. עשו לי מהפכה מטורפת בגינה ועוד במחיר באמת טוב. ממליץ מכל הלב."
+                        </p>
+                        <cite class="reviewer-name">Imry O.</cite>
+                        <div class="source">⭐ 5.0 (מתוך Easy)</div>
+                    </blockquote>
+
+                    <blockquote class="testimonial-card" data-testimonial-id="302">
+                        <p class="quote">
+                            "צוות לעניין וממש מקצועי. הם עושים הכל טוב עובדים מהר ומקצועי ואנשים סופר נחמדים. ממליץ לכולם לא תתאכזבו."
+                        </p>
+                        <cite class="reviewer-name">Noam M.</cite>
+                        <div class="source">⭐ 4.8 (מתוך Easy)</div>
+                    </blockquote>
+
+                    <blockquote class="testimonial-card" data-testimonial-id="302">
+                        <p class="quote">
+                            "בר ומתן היקרים תודה על שירות מצוין! שני צעירים מביני עניין, מקצוענים, אדיבים וישרים. טיפלו לי בחצר מדהים 🙏🏻"
+                        </p>
+                        <cite class="reviewer-name">אביב ג.</cite>
+                        <div class="source">⭐ 4.9 (מתוך Easy)</div>
+                    </blockquote>
+
+                    <blockquote class="testimonial-card" data-testimonial-id="302">
+                        <p class="quote">
+                            "קיבלתי המלצה מחברים וחייב לומר שמעל ומעבר לכל ציפייה. צוות שירותי ונדיב שלא רק באים לעשות את העבודה בצורה מקצועית גם תומכים ומציעים רעיונות טובים ומשופרים יותר, ניכר כי אכפת להם ממה שהם עושים ומתעסקים ובאמת יעשו הכל על הצד החיובי ביותר. אני חד משמעית מרוצה מכל בחינה שהיא וברור לי גם שאמשיך בכל הזדמנות שתהייה לי איתם, קודם כל תודה רבה לך והמשיכו כך. ממליץ לכולם!"
+                        </p>
+                        <cite class="reviewer-name">Koren S.</cite>
+                        <div class="source">⭐ 5.0 (מתוך Easy)</div>
+                    </blockquote>
+
+                    <blockquote class="testimonial-card" data-testimonial-id="302">
+                        <p class="quote">
+                            "חברה מקצועים ואיכותיים יושרה, עמידה בזמנים והכל עם חיוך ותוצאות מדהימות."
+                        </p>
+                        <cite class="reviewer-name">אבי י.</cite>
+                        <div class="source">⭐ 4.7 (מתוך Easy)</div>
+                    </blockquote>
+                    
+                </div>
+
+                <button class="next-btn" aria-label="ביקורת הבאה">❯</button> 
+            </div>
+
+        </section>
+
+    </main>
+    <div id="footer-placeholder"></div>
+    <script src="/global.js"></script>
+
+    <script src="homePage.js"></script>
 </body>
 </html>
