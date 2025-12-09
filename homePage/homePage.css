@@ -1,0 +1,358 @@
+/* --- עיצוב MAIN --- */
+main {
+    flex-grow: 1; /* מוודא שהתוכן דוחף את הפוטר למטה */
+    width: 100%;
+    overflow-x: hidden;
+    padding-top: 20px; /* ריווח קל מתחת ל-Header */
+}
+
+section {
+    padding: 60px 20px; /* ריווח פנימי גדול בין הקטעים השונים */
+    margin: 0 auto;
+    max-width: 1200px; /* רוחב מקסימלי נוח לקריאה */
+}
+
+h1, h2, h3 {
+    font-family: 'Open Sans', sans-serif; /* פונט שאישרתם */
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+h2 {
+    font-size: 2.2rem;
+    margin-bottom: 40px;
+}
+
+p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    color: var(--olive-green);
+}
+
+/* --- HERO SECTION --- */
+.hero-section {
+    position: relative; 
+    width: 100%; 
+    height: 60vh; /* גובה Hero יחסי ל-viewport */
+    margin-bottom: 50px;
+    padding: 0; /* מבטל את ה-padding של section כדי שיהיה רוחב מלא */
+    overflow: hidden; 
+}
+
+/* התמונה ממלאת את ה-Hero */
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    object-position: center; 
+}
+
+/* תוכן הטקסט והכפתור (על גבי התמונה) */
+.hero-content {
+    position: absolute; 
+    top: 0;
+    width: 100%;
+    height: 100%;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
+    
+    text-align: center;
+    /* הוספת שכבת צבע קלה לשיפור קריאות על תמונות בהירות */
+    background-color: rgba(134, 157, 122, 0.2); /* שילוב של Olive Green שקוף */
+}
+
+/* כותרת ה-HERO */
+.hero-content h1 {
+    color: white; 
+    font-size: 3.8rem; 
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+    margin-bottom: 40px;
+    max-width: 80%;
+}
+
+/* כפתור CTA (צרו קשר) */
+.primary-cta {
+    font-size: 1.3rem; 
+    padding: 15px 35px;
+    background-color: white;
+    color: var(--light-mint); 
+    border-radius: 5px;
+    font-weight: 700;
+    transition: background-color 0.3s;
+}
+
+.primary-cta:hover {
+    background-color: var(--olive-green);
+    color: white;
+}
+
+/* --- TRUST SECTION --- */
+.trust-section {
+    background-color: var(--soft-green); /* רקע שונה להפרדה ויזואלית */
+    text-align: center;
+    border-radius: 10px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    margin-top: 50px;
+}
+
+.company-intro {
+    max-width: 800px;
+    margin: 0 auto 30px auto;
+    font-size: 1.2rem;
+}
+
+/* כפתור משני */
+.secondary-button {
+    display: inline-block;
+    padding: 10px 25px;
+    border: 2px solid var(--olive-green);
+    color: var(--olive-green);
+    border-radius: 5px;
+    font-weight: 600;
+    transition: all 0.3s;
+}   
+
+.secondary-button:hover {
+    background-color: var(--olive-green);
+    color: white;
+}
+
+/* --- PORTFOLIO GRID --- */
+.portfolio-grid {
+    display: none !important;
+    /* display: grid;
+    grid-template-columns: repeat(1, 1fr); 
+    gap: 40px;
+    max-width: 950px;
+    margin: 40px auto; */
+}
+
+.portfolio-slider-wrapper {
+    position: relative;
+    max-width: 950px; /* הרוחב המקסימלי של הגלריה הנראית */
+    margin: 40px auto; 
+    display: flex;
+    align-items: center;
+    padding: 0 60px; /* מרווח עבור כפתורי הניווט */
+}
+
+.portfolio-slider {
+    display: flex; /* חובה: מציג את כל הפריטים בטור רציף */
+    overflow-x: hidden; /* **חובה**: מסתיר את שאר הכרטיסיות (יוצר את חלון הצפייה) */
+    width: 100%; 
+    scroll-behavior: smooth; /* גלילה חלקה */
+}
+
+.before-after-item {
+    flex: 0 0 100%; 
+    min-width: 0; 
+    margin: 0; /* ביטול מרווחים חיצוניים שעלולים לשבור את ה-100% */
+    background-color: white;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.15); /* עדכון לצל מרכזי */
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.image-pair {
+    display: flex; /* חובה: מציג את התמונות בשורה */
+    gap: 70px; /* יוצר רווח קבוע של 15px בין תמונת לפני ואחרי */
+    padding: 10px; /* ריווח פנימי קל בתוך הפריים */
+}
+
+.image-container {
+    width: 50%;
+    position: relative; /* חובה למיקום הכיתוב */
+}
+
+/* --- עיצוב הכיתוב "לפני" / "אחרי" --- */
+.image-label {
+    position: absolute;
+    top: 5px;
+    right: 5px; /* ממוקם בפינה הימנית העליונה */
+    background-color: black; /* רקע שקוף למחצה (Olive Green) */
+    color: white;
+    padding: 4px 8px;
+    border-radius: 3px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    z-index: 5;
+}
+
+.image-wrapper img {
+    /* כדי לוודא שכל התמונות באותו גובה */
+    height: 300px; 
+    width: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.before-after-item:hover img {
+    transform: scale(1.05);
+}
+
+/* --- TESTIMONIALS --- */
+.testimonials-section {
+    background-color: var(--light-mint);
+    padding-bottom: 60px;
+}
+
+.slider-wrapper {
+    position: relative;
+    max-width: 900px; /* רוחב ה-Slider הנראה (מתאים ל-2 קלפים) */
+    margin: 0 auto;
+    display: flex; /* מסדר את החיצים והסליידר בשורה */
+    align-items: center;
+    padding: 0 50px; /* מרווח למיקום החיצים בצידי ה-Slider */
+}
+
+.testimonials-slider {
+    display: flex;
+    overflow-x: hidden; /* **חובה**: מסתיר את התוכן שחורג (יוצר אפקט חלון) */
+    width: 100%; 
+    scroll-behavior: smooth; /* גלילה חלקה באמצעות JavaScript */
+    margin-top: 30px;
+}
+
+.testimonial-card {
+    flex: 0 0 calc(50% - 15px); 
+    min-width: 0;
+    background-color: white;
+    padding: 30px;
+    border-left: 5px solid var(--light-brown);
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+    margin-left: 30px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px); 
+    
+    /* צל חזק יותר וממורכז במצב ריחוף */
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.3); 
+}
+
+.testimonial-card:first-child {
+    margin-right: 0; 
+}
+
+.prev-btn, .next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--dark-brown);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    width: 40px;
+    height: 40px;
+    transition: opacity 0.3s, background-color 0.3s;
+}
+
+.prev-btn:disabled, .next-btn:disabled {
+    background: var(--light-brown); /* צבע חום בהיר יותר לפעולה מושבתת */
+    opacity: 0.5; /* אפשר להוסיף שקיפות קלה */
+    cursor: not-allowed; /* שינוי סמן העכבר לסימן "אסור" */
+    pointer-events: none; /* חובה: מבטל לחלוטין את אירועי העכבר */
+}
+
+.prev-btn:hover, .next-btn:hover {
+    opacity: 0.9;
+}
+
+.prev-btn {
+    right: 0; 
+}
+
+.next-btn {
+    left: 0; 
+}
+
+.quote {
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--dark-brown);
+    margin-bottom: 15px;
+}
+
+.reviewer-name {
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+    color: var(--olive-green);
+}
+
+.source {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+@media (max-width: 900px) {
+    /* HERO */
+    .hero-content h1 {
+        font-size: 2.5rem; 
+    }
+    
+    /* PORTFOLIO GRID */
+    .portfolio-grid {
+        /* במסך בינוני: 2 עמודות */
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    /* HERO */
+    .hero-section {
+        height: 40vh;
+    }
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+    
+    /* PORTFOLIO GRID */
+    .portfolio-grid {
+        /* בנייד: טור יחיד */
+        grid-template-columns: 1fr; 
+    }
+
+    .image-pair {
+        flex-direction: column; 
+        gap: 10px;
+    }
+    .image-container {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .testimonial-card {
+        flex: 0 0 100%; /* כל קלף תופס 100% מהרוחב בנייד */
+        margin-left: 0; 
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+    .slider-wrapper {
+        padding: 0 10px; 
+    }
+    .prev-btn, .next-btn {
+        /* הסתרת החיצים בנייד אם רוצים להשתמש בגלילת מגע */
+        display: none; 
+    }
+}
