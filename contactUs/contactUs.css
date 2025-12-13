@@ -1,26 +1,26 @@
 /* ================================
-   עמוד צור קשר – CSS
+   עמוד צור קשר – CSS ראשי
 ================================ */
 
 
+/* ------ אזור ה-HERO בעמוד צור קשר ------ */
 
-/* ------ HERO בעמוד צור קשר ------ */
-
-/* ------ HERO בעמוד צור קשר (אותו סטייל כמו ABOUT US) ------ */
-
-/* ------ HERO בעמוד צור קשר (תמונה כמו ABOUTUS, טקסט מתחת) ------ */
 
 .hero-intro {
+    /* ריווח פנימי ותיישור מרכזי לחלק העליון של העמוד */
     padding: 40px 50px 0;
     background-color: transparent;
     text-align: center;
 }
 
+
 .hero-intro.contact-intro {
+    /* רווח תחתון בין ה-HERO לגריד של התוכן */
     margin-bottom: 40px;
 }
 
-/* קונטיינר לתמונה כמו ABOUTUS */
+
+/* קונטיינר לתמונה העליונה, כולל גובה קבוע וצל */
 .hero-intro .banner-overlay {
     position: relative;
     width: 100%;
@@ -30,6 +30,8 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+
+/* התאמת התמונה לגודל הקונטיינר (חיתוך לפי הצורך) */
 .hero-intro .banner-overlay img {
     width: 100%;
     height: 100%;
@@ -37,19 +39,9 @@
     display: block;
 }
 
-/* כותרת ופסקה מתחת לתמונה */
-.hero-intro h1 {
-    font-size: 2.2rem;
-    color: var(--dark-brown);
-    margin: 20px 0 10px;
-}
 
-.hero-intro .intro-text {
-    font-size: 1rem;
-    color: var(--dark-brown);
-}
+/* טקסט שמופיע מעל התמונה עם שכבת שקיפות קלה */
 .overlay-text {
-    /* מיקום מוחלט מעל התמונה */
     position: absolute;
     top: 0;
     left: 0;
@@ -57,86 +49,114 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* ממורכז אנכית */
-    align-items: center; /* ממורכז אופקית */
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    /* הוספת שכבת גוון קלה לשפר את קריאות הטקסט */
-    background-color: rgba(0, 0, 0, 0.2); 
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
+
+/* כותרת על גבי התמונה */
 .overlay-text h1 {
-    font-size: 40px; 
-    color: white; /* צבע לבן לכיתוב על רקע כהה/ירוק */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* צל קל לשיפור הקריאות */
-    margin: 0; /* הסרת מרווחים פנימיים מיותרים */
+    font-size: 40px;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    margin: 0;
 }
+
+h2 {
+    margin-top: 40px;
+}
+
+h3 {
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+/* טקסט תיאור קצר מתחת לכותרת */
+.hero-intro .intro-text {
+    color: #333;
+}
+
 
 /* ---------------------------------------
    גריד: צד טופס + צד מידע
 --------------------------------------- */
 
+
 .contact-grid {
-    max-width: 1100px;
+    /* מרכז העמוד ומגדיר 2 טורים (טופס + מידע) */
+    max-width: 1350px;
     margin: 0 auto 40px auto;
     display: flex;
     gap: 30px;
-    align-items: stretch; /* שומר על גובה זהה */
+    align-items: stretch;
 }
 
-/* ------ טופס ------ */
+
+/* ------ אזור הטופס ------ */
+
 
 .contact-form-wrapper {
+    /* כרטיס לטופס: רקע לבן, מסגרת וצל עדין */
     flex: 1.2;
     background-color: #ffffff;
     padding: 20px 18px;
     border-radius: 10px;
-    border: 1.5px solid var(--olive-green); /* מסגרת חדשה */
+    border: 1.5px solid var(--olive-green);
     box-shadow: 0 4px 10px rgba(0,0,0,0.07);
 }
 
-.contact-form-wrapper h2 {
-    font-size: 1.4rem;
-    margin-bottom: 15px;
-    color: var(--dark-brown);
-}
 
+/* סידור שדות הטופס בטור עם רווחים קבועים */
 .contact-form {
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
 
+
+/* קבוצות שדות – יחידות מבניות */
 .form-group,
 .form-group-double,
 .form-group-triple {
     width: 100%;
 }
 
+
+/* שלישיות שדות בשורה, עם גמישות במסכים קטנים */
 .form-group-triple {
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
 }
 
+
+/* זוג שדות בשורה – גם כאן גמישות לרספונסיביות */
 .form-group-double {
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
 }
 
+
+/* כל form-group יכול להתרחב ביחס לאחרים */
 .contact-form .form-group {
     flex: 1;
     min-width: 150px;
 }
 
+
+/* תצוגת לייבל מעל השדה, מודגש בצבע טקסט ראשי */
 .contact-form label {
     display: block;
     margin-bottom: 4px;
     font-weight: 600;
-    color: var(--dark-brown);
     font-size: 0.95rem;
 }
 
+
+/* עיצוב בסיסי לשדות טקסט, select ו-textarea */
 .contact-form input,
 .contact-form select,
 .contact-form textarea {
@@ -149,17 +169,23 @@
     font-size: 0.95rem;
 }
 
+
+/* מאפשר שינוי גובה של טקסט חופשי */
 .contact-form textarea {
     resize: vertical;
 }
 
+
+/* טקסטי עזר קטנים מתחת לשדות */
 .contact-form small {
     font-size: 0.8rem;
     color: #555;
 }
 
+
+/* כפתור שליחת הטופס */
 .cta-button {
-    background-color: var(--bottle-green);
+    background-color: var(--olive-green);
     color: #ffffff;
     border: none;
     padding: 10px 18px;
@@ -171,72 +197,116 @@
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
+
+/* אפקט hover קל לכפתור */
 .cta-button:hover {
     background-color: var(--dark-brown);
     transform: translateY(-1px);
 }
 
+
+/* הערת טקסט מתחת לטופס (הסבר על המשך התהליך) */
 .form-note {
     margin-top: 8px;
     font-size: 0.85rem;
     color: #555;
 }
 
+
+/* הודעת הצלחה אחרי שליחת טופס (נשלטת ב-JS) */
+.form-success-message {
+    margin-top: 10px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    background-color: #e8f8f2;
+    border: 1px solid var(--dark-brown);
+    color: var(--dark-brown);
+    font-size: 0.9rem;
+}
+
+
+/* מונה תווים לשדה התיאור */
+.desc-counter {
+    display: block;
+    margin-top: 4px;
+    font-size: 0.8rem;
+    color: #555;
+}
+
+
+/* תמונה שמוצגת כ-preview לתמונה שהועלתה */
+#image-preview {
+    display: block;
+    max-width: 100%;
+    margin-top: 8px;
+    border-radius: 8px;
+}
+
+
 /* ---------------------------------------
-   צד מידע
+   צד ימין – מידע ופרטי יצירת קשר
 --------------------------------------- */
 
+
 .contact-info-wrapper {
+    /* טור נוסף לגריד – פרטי העסק */
     flex: 1;
     padding: 10px 5px;
     display: flex;
     flex-direction: column;
 }
 
-.contact-info-wrapper h2 {
-    font-size: 1.3rem;
-    margin-bottom: 10px;
-    color: var(--dark-brown);
-}
 
-/* קוביות מידע */
+
+/* קופסאות מידע (שעות פעילות, אזורי עבודה, רשתות) */
 .info-block {
     background-color: #ffffff;
     border-radius: 10px;
     padding: 15px 16px;
     margin-bottom: 15px;
-    border: 1.5px solid var(--olive-green); /* מסגרת כמו טופס */
+    border: 1.5px solid var(--olive-green);
     box-shadow: 0 4px 10px rgba(0,0,0,0.04);
 }
 
+
+/* כותרת פנימית בכל קופסת מידע */
 .info-block h3 {
     font-size: 1.05rem;
     margin-bottom: 6px;
-    color: var(--bottle-green);
+    color: #333;
 }
 
+
+/* הדגשת מספר טלפון */
 .phone-number {
     font-weight: 600;
     margin-bottom: 8px;
 }
 
+
+/* רשימת שעות פעילות */
 .hours-list {
     list-style: disc;
     padding-right: 18px;
     margin-bottom: 8px;
 }
 
+
+/* טקסט הסבר קטן על זמינות */
 .availability-note {
     font-size: 0.9rem;
 }
 
-/* אייקונים */
+
+/* אייקונים של רשתות חברתיות */
 .social-widgets.large-icons a,
 .social-icons a {
     margin-left: 8px;
     display: inline-block;
 }
 
+
+/* מקום עתידי למפה (אם נרצה להוסיף) */
 .map-placeholder {
     padding: 8px;
     background-color: #f7f7f7;
@@ -245,22 +315,31 @@
     font-size: 0.9rem;
 }
 
-/* ------ רספונסיביות ------ */
+
+/* ------ רספונסיביות למסכים קטנים ------ */
+
 
 @media (max-width: 900px) {
 
+
+    /* התאמת גובה תמונת HERO במסכים צרים */
     .hero-intro .banner-image img {
         height: 220px;
     }
 
+
+    /* מעבר לגריד טורי – טופס מעל, מידע מתחת */
     .contact-grid {
         flex-direction: column;
     }
 
+
+    /* בשלב מסוים כל השדות מסתדרים אחד מתחת לשני */
     .form-group-triple,
     .form-group-double {
         flex-direction: column;
     }
+
 
     .contact-form .form-group {
         width: 100%;
