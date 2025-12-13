@@ -13,9 +13,28 @@
     padding: 0;
 }
 
+h1 {
+    font-size: 50px !important; 
+    color: white !important; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6) !important;
+    margin: 0 !important;
+}
+
+h2 {
+    text-align: center !important;
+    margin-bottom: 25px !important;
+    font-size: 35px !important;
+    color: var(--olive-green);
+}
+
+h3 {
+    color: var(--olive-green);
+}
+
+
 body {
     font-family: var(--main-font);
-    color: var(--olive-green); 
+    color: #333;
     line-height: 1.6;
     text-align: right; 
     min-height: 100vh;
@@ -198,21 +217,6 @@ img {
     color: black; 
 }
 
-
-
-/* --- רספונסיביות --- */
-@media (max-width: 900px) {
-    .main-header {
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    .main-nav ul {
-        justify-content: center;
-        flex-wrap: wrap; 
-    }
-}
-
 html, body {
     /* הכלל החשוב: מונע תוכן מלחרוג מרוחב המכשיר */
     overflow-x: hidden; 
@@ -220,3 +224,111 @@ html, body {
     /* מוודא שאלמנט הבסיס תופס 100% מהרוחב הזמין */
     width: 100%; 
 }
+
+
+/* --- רספונסיביות --- */
+/* ------------------------------------- */
+/* 1. דסקטופ קטן: בין 901px ל- 1200px */
+/* ------------------------------------- */
+@media (min-width: 901px) and (max-width: 1200px) {
+   
+    /* הכללים האלה חלים רק ברוחב הזה */
+    .logo a img {
+        margin-right: 50px; /* צמצום מ-200px ל-50px */
+    }
+
+
+    .main-nav > ul {
+        gap: 30px;
+    }
+
+
+    .social-icons {
+        margin-left: 50px;
+    }
+}
+
+
+
+
+/* ------------------------------------- */
+/* 2. טאבלט: בין 601px ל- 900px */
+/* ------------------------------------- */
+@media (min-width: 601px) and (max-width: 900px) {
+   
+    /* הכללים האלה חלים רק ברוחב הזה - הפריסה האנכית */
+    .main-header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 10px;
+    }
+
+
+    /* ביטול מרווחי ה-200px והקטנת לוגו */
+    .logo a img {
+        height: 80px;
+        width: 80px;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+   
+    /* מעבר ל-column וצמצום רווחים בתפריט */
+    .main-nav > ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+   
+    /* ... וכל שאר הכללים שהגדרת ל-900px ... */
+   
+    /* ביטול מרווחי ה-200px ברשתות החברתיות */
+    .social-icons {
+        justify-content: center;
+        margin-left: 0;
+    }
+}
+
+
+
+
+/* ------------------------------------- */
+/* 3. מובייל: עד 600px */
+/* ------------------------------------- */
+@media (max-width: 600px) {
+    /* הכללים האלה חלים רק על מובייל צר */
+   
+    /* מכריח את כללי ה-900px לרוץ קודם */
+    /* ***חשוב: נשתמש בכללים מ-900px ונשנה רק את מה שצריך *** */
+
+
+    .main-header {
+        flex-direction: column; /* שומרים על ערימה אנכית */
+        gap: 10px;
+    }
+
+
+    .logo a img {
+        height: 60px; /* הקטנה נוספת */
+        width: 60px;
+        margin-right: 0;
+    }
+   
+    .main-nav a {
+        font-size: 0.9rem; /* הקטנת הגופן */
+        padding: 5px 10px;
+    }
+   
+    .social-icons {
+        display: none; /* מסתירים את הסושיאל במובייל צר */
+        margin-left: 0;
+    }
+
+
+    .main-footer {
+        padding: 20px 10px;
+    }
+   
+    /* ... וכל שאר הכללים הספציפיים ל-600px ... */
+}
+
+

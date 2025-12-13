@@ -43,7 +43,7 @@
 }
 
 .overlay-text h1 {
-    font-size: 40px; 
+    font-size: 50px; 
     color: white; /* צבע לבן לכיתוב על רקע כהה/ירוק */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* צל קל לשיפור הקריאות */
     margin: 0; /* הסרת מרווחים פנימיים מיותרים */
@@ -61,6 +61,7 @@
 .company-overview h2 {
     text-align: center;
     margin-bottom: 25px;
+    font-size: 35px;
 }
 
 .company-overview p {
@@ -264,23 +265,70 @@
 /* Media Queries לריספונסיביות */
 /* ################################################################### */
 
-@media (min-width: 768px) {
-    .team-grid {
-        grid-template-columns: repeat(2, 1fr);
+/* ====================================================== */
+/* 1. טאבלט רחב (בין 769px ל-900px) */
+/* ====================================================== */
+@media (min-width: 769px) and (max-width: 900px) {
+    /* HERO: הקטנת כותרת ה-Hero */
+    .hero-content h1 {
+        font-size: 2.5rem;
     }
-    .company-overview {
-        padding: 30px 5%;
+    
+    /* PORTFOLIO SLIDER: הקטנת רוחב ה-Slider */
+    .portfolio-slider-wrapper {
+        max-width: 768px; 
+        padding: 0 40px; 
     }
-    .company-overview p {
-        font-size: 1em;
+
+    /* פורטפוליו פנימי */
+    .image-pair {
+        gap: 30px; 
     }
-    .faq-tabs {
-        /* מאפשר שבירת שורה בטלפונים */
-        flex-direction: row; 
-        gap: 8px;
+}
+
+/* ====================================================== */
+/* 2. טאבלט קטן/מובייל רחב (בין 601px ל-768px) */
+/* ====================================================== */
+@media (min-width: 601px) and (max-width: 768px) {
+    /* HERO */
+    .hero-section {
+        height: 300px; /* גובה ביניים */
     }
-    .accordion-header {
-        font-size: 1em;
-        padding: 15px 20px;
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+
+    /* פורטפוליו: מתחילים לעבור לטור או להישאר רחב */
+    .portfolio-slider-wrapper {
+        max-width: 95%; /* נותן לו להתפרס כמעט מלא */
+        padding: 0 20px;
+    }
+}
+
+/* ====================================================== */
+/* 3. מובייל (600px ומטה) - הטווח הצר ביותר */
+/* ====================================================== */
+@media (max-width: 600px) {
+    /* HERO */
+    .hero-section {
+        height: 250px; 
+    }
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+    
+    /* פורטפוליו: טור מלא (לפני/אחרי מתחת) */
+    .image-pair {
+        flex-direction: column; 
+        gap: 10px;
+    }
+    .image-container {
+        width: 100%;
+    }
+    .portfolio-slider-wrapper {
+        padding: 0 10px;
+    }
+    .image-wrapper img {
+        height: 200px;
     }
 }
