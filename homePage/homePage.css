@@ -327,7 +327,7 @@ p {
 @media (max-width: 600px) {
     /* HERO */
     .hero-section {
-        height: 40vh;
+        height: 250px;
     }
     .hero-content h1 {
         font-size: 1.8rem;
