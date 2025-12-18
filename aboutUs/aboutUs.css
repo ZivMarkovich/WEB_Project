@@ -2,21 +2,24 @@
 /* ABOUT PAGE SPECIFIC LAYOUT AND STYLES */
 /* ################################################################### */
 
+
 /* Hero Intro - באנר קטן */
 .hero-intro {
     padding: 40px 50px 0; /* הסרת Padding תחתון כדי שה-overlay ישלוט בגובה */
     background-color: transparent; /* הרקע הלבן מיותר */
 }
 
+
 .banner-overlay {
     position: relative; /* ה-Container הראשי מחזיק את המיקום המוחלט */
     width: 100%;
     /* הגבהת הבאנר (כדי שיהיה "ארוך יותר") */
-    height: 400px; 
+    height: 400px;
     overflow: hidden;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
+
 
 .banner-overlay img {
     /* התמונה תכסה את כל שטח ה-Container */
@@ -25,6 +28,7 @@
     object-fit: cover;
     display: block;
 }
+
 
 .overlay-text {
     /* מיקום מוחלט מעל התמונה */
@@ -39,15 +43,17 @@
     align-items: center; /* ממורכז אופקית */
     text-align: center;
     /* הוספת שכבת גוון קלה לשפר את קריאות הטקסט */
-    background-color: rgba(0, 0, 0, 0.2); 
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
+
 .overlay-text h1 {
-    font-size: 50px; 
+    font-size: 50px;
     color: white; /* צבע לבן לכיתוב על רקע כהה/ירוק */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* צל קל לשיפור הקריאות */
     margin: 0; /* הסרת מרווחים פנימיים מיותרים */
 }
+
 
 /* Company Overview - מי אנחנו */
 .company-overview {
@@ -58,11 +64,13 @@
     margin: 0 auto;
 }
 
+
 .company-overview h2 {
     text-align: center;
     margin-bottom: 25px;
     font-size: 35px;
 }
+
 
 .company-overview p {
     max-width: 800px;
@@ -74,7 +82,11 @@
 
 
 
+
+
+
 /* Team Section - הצוות */
+
 
 .team-section {
     padding: 60px 5%;
@@ -83,9 +95,11 @@
     text-align: center;
 }
 
+
 .team-section h2 {
     margin-bottom: 40px;
 }
+
 
 .team-grid {
     display: grid;
@@ -93,6 +107,7 @@
     grid-template-columns: 1fr;
     gap: 30px;
 }
+
 
 .team-member-card {
     background-color: #fff;
@@ -105,25 +120,29 @@
     cursor: default;
 }
 
+
 .team-member-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
 
+
 .team-member-card img {
     width: 150px;
     height: 150px;
-    border-radius: 50%; 
+    border-radius: 50%;
     object-fit: cover;
     margin-bottom: 15px;
     border: 3px solid var(--color-accent); /* מסגרת ירוקה בהירה */
 }
+
 
 .team-member-card h3 {
     margin-bottom: 5px;
     font-size: 1.4em;
     color: var(--color-primary);
 }
+
 
 .team-member-card .position {
     color: var(--color-accent);
@@ -132,19 +151,23 @@
     margin-bottom: 10px;
 }
 
+
 .team-member-card .bio {
     font-size: 0.95em;
     color: #555;
 }
 
+
 /* FAQ Section - שאלות נפוצות (מבנה לשוניות/אקורדיון) */
 
+
 .faq-section {
-    padding: 40px 5% 20px;   
+    padding: 40px 5% 20px;  
     max-width: 1200px;
     margin: 0 auto;
     text-align: center;
 }
+
 
 /* לשוניות (Tabs) - לניווט בין קהלי היעד */
 .faq-tabs {
@@ -154,6 +177,7 @@
     margin-bottom: 30px;
     flex-wrap: wrap;
 }
+
 
 .tab-button {
     background-color: var(--color-background);
@@ -168,6 +192,7 @@
     white-space: nowrap; /* למניעת שבירת שורה בכפתור */
 }
 
+
 /* עיצוב הלשונית הפעילה */
 .tab-button.active {
     background-color: var(--color-primary);
@@ -177,34 +202,38 @@
     pointer-events: none;
 }
 
+
 .tab-button:hover:not(.active) {
     background-color: #eee;
     border-color: var(--color-accent);
 }
+
 
 /* מכיל את פריטי האקורדיון */
 .accordion-container {
     max-width: 900px;
     margin: 0 auto;
     text-align: right;
-    
+   
     /* הוספת height ו-visibility ל-transition */
     transition: opacity 0.3s ease-out, visibility 0.3s ease-out, height 0.3s ease-out;
-    
+   
     /* הגדרות בסיס */
     visibility: visible;
     height: auto; /* מאפשר גובה דינמי */
     opacity: 1;
 }
 
+
 /* הקלאס 'hidden' מוסתר על ידי ה-JS, אך נגדיר אותו גם ב-CSS לשלמות */
 .accordion-container.hidden {
     opacity: 0;
     height: 0;
     visibility: hidden;
-    padding: 0; 
-    margin-bottom: 0; 
+    padding: 0;
+    margin-bottom: 0;
 }
+
 
 /* פריט FAQ - גוף האקורדיון */
 .faq-item {
@@ -215,6 +244,7 @@
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
 }
+
 
 .accordion-header {
     width: 100%;
@@ -231,6 +261,7 @@
     color: var(--color-primary);
 }
 
+
 /* סימן פלוס/מינוס */
 .accordion-header::after {
     content: '+';
@@ -240,10 +271,12 @@
     color: var(--color-accent);
 }
 
+
 .accordion-header[aria-expanded="true"]::after {
     content: '−';
     transform: rotate(180deg);
 }
+
 
 /* תוכן האקורדיון - מוסתר כברירת מחדל */
 .accordion-content {
@@ -254,6 +287,7 @@
     background-color: #f9f9f9;
 }
 
+
 .accordion-content p {
     padding: 15px 0;
     margin: 0;
@@ -262,78 +296,119 @@
 }
 
 /* ################################################################### */
-/* Media Queries לריספונסיביות */
+/* Media Queries – רספונסיביות */
 /* ################################################################### */
-
 /* ====================================================== */
-/* 1. טאבלט רחב (בין 769px ל-900px) */
+/* דסקטופ קטן / לפטופ (901px–1200px) */
+/* ====================================================== */
+@media (min-width: 901px) and (max-width: 1200px) {
+    
+    /* Hero - הקטנה קלה של הכותרת הראשית */
+    .overlay-text h1 {
+        font-size: 44px;
+    }
+
+    /* התאמת ריווחים ב-Company Overview */
+    .company-overview {
+        padding: 40px 8%;
+    }
+
+    /* הצוות - מעבר ל-2 עמודות כדי שהכרטיסים יהיו רחבים ונוחים לקריאה */
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+
+    /* FAQ - צמצום קל של רוחב האקורדיון */
+    .accordion-container {
+        max-width: 850px;
+    }
+
+    .tab-button {
+        padding: 10px 18px;
+        font-size: 0.95rem;
+    }
+}
+/* ====================================================== */
+/* טאבלט רחב (769px–900px) */
 /* ====================================================== */
 @media (min-width: 769px) and (max-width: 900px) {
-    /* HERO: הקטנת כותרת ה-Hero */
-    .hero-content h1 {
-        font-size: 2.5rem;
-    }
-    
-    /* PORTFOLIO SLIDER: הקטנת רוחב ה-Slider */
-    .portfolio-slider-wrapper {
-        max-width: 768px; 
-        padding: 0 40px; 
+
+    .hero-home .banner-overlay {
+        height: 420px;
     }
 
-    /* פורטפוליו פנימי */
-    .image-pair {
-        gap: 30px; 
+    .hero-home .overlay-text h1 {
+        font-size: 42px;
+    }
+
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
 /* ====================================================== */
-/* 2. טאבלט קטן/מובייל רחב (בין 601px ל-768px) */
+/* טאבלט קטן / מובייל רחב (601px–768px) */
 /* ====================================================== */
 @media (min-width: 601px) and (max-width: 768px) {
-    /* HERO */
-    .hero-section {
-        height: 300px; /* גובה ביניים */
-    }
-    .hero-content h1 {
-        font-size: 2.2rem;
+
+    .hero-home {
+        padding: 30px 20px 0;
     }
 
-    /* פורטפוליו: מתחילים לעבור לטור או להישאר רחב */
-    .portfolio-slider-wrapper {
-        max-width: 95%; /* נותן לו להתפרס כמעט מלא */
-        padding: 0 20px;
+    .hero-home .banner-overlay {
+        height: 360px;
+    }
+
+    .hero-home .overlay-text h1 {
+        font-size: 36px;
+    }
+
+    .hero-home .overlay-text p {
+        font-size: 1.1rem;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
     }
 }
 
 /* ====================================================== */
-/* 3. מובייל (600px ומטה) - הטווח הצר ביותר */
+/* מובייל (600px ומטה) */
 /* ====================================================== */
 @media (max-width: 600px) {
-    /* HERO */
-    .hero-section {
-        height: 250px; 
+
+    .hero-home {
+        padding: 20px 15px 0;
     }
-    .hero-content h1 {
-        font-size: 1.8rem;
+
+    .hero-home .banner-overlay {
+        height: 300px;
+        border-radius: 6px;
     }
-    
-    /* פורטפוליו: טור מלא (לפני/אחרי מתחת) */
-    .image-pair {
-        flex-direction: column; 
-        gap: 10px;
+
+    .hero-home .overlay-text h1 {
+        font-size: 28px;
     }
-    .image-container {
-        width: 100%;
+
+    .hero-home .overlay-text p {
+        font-size: 1rem;
     }
-    .portfolio-slider-wrapper {
-        padding: 0 10px;
+
+    .home-intro {
+        padding: 40px 5%;
     }
-    .image-wrapper img {
-        height: 200px;
+
+    .cta-section {
+        padding: 40px 5%;
     }
 }
 
+/* ====================================================== */
+/* דסקטופ (768px ומעלה) */
+/* ====================================================== */
 @media (min-width: 768px) {
-    .team-grid {
-        /* יצירת 2 עמודות שוות רוחב */
-        grid-template-columns: repeat(2, 1fr);
+    .features-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

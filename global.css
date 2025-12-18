@@ -196,6 +196,7 @@ img {
     text-align: center;
     font-size: 1rem;
     width: 100%;
+    margin: 0;
 }
 
 
@@ -222,7 +223,9 @@ html, body {
     overflow-x: hidden; 
     
     /* מוודא שאלמנט הבסיס תופס 100% מהרוחב הזמין */
-    width: 100%; 
+    width: 100%;
+    margin: 0;
+    padding: 0; 
 }
 
 
@@ -247,9 +250,6 @@ html, body {
         margin-left: 50px;
     }
 }
-
-
-
 
 /* ------------------------------------- */
 /* 2. טאבלט: בין 601px ל- 900px */
@@ -330,5 +330,3 @@ html, body {
    
     /* ... וכל שאר הכללים הספציפיים ל-600px ... */
 }
-
-
