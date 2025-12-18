@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>צומחים יחד | צמחים</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="/global.css">
+  <link rel="stylesheet" href="/plants/plants.css">
+</head>
+
+<body>
+
+  <div id="header-placeholder"></div>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero-intro">
+      <div class="banner-overlay">
+        <img src="images/pngtree-tulips-in-garden-on-blue-sky-background-wide-banner-with-copy-photo-image_2196485.jpg" alt="קטלוג צמחים">
+        <div class="overlay-text">
+          <h1>הדרך לגינה טובה מתחילה כאן</h1>
+        </div>
+      </div>
+    </section>
+
+    <!-- Intro -->
+    <section class="plants-intro">
+      <div class="content-wrapper">
+        <h2>בחרו את הצמח שמתאים לכם</h2>
+        <p>
+          כאן תוכלו למצוא מגוון צמחים לגינה ולמרפסת. מתחת לכל תמונה מופיע תיאור קצר כדי שתוכלו לבחור בקלות.
+        </p>
+
+        <!-- Search -->
+        <div class="plants-search">
+          <label class="visually-hidden" for="plants-search-input">חיפוש צמח</label>
+          <input id="plants-search-input" type="text"
+            placeholder="חפשו לפי שם או תיאור (לדוגמה: לבנדר, שמש, השקיה...)"
+            autocomplete="off">
+          <div class="plants-search-meta">
+            <span id="plants-results-count"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Grid -->
+    <section class="plants-section">
+      <div class="plants-grid" id="plants-grid">
+
+        <!-- 1 -->
+        <article class="plant-card">
+          <div class="plant-image">
+            <img src="images/לבנדר.jpg" alt="לבנדר">
+          </div>
+          <div class="plant-caption">
+            <h3>לבנדר</h3>
+            <p>צמח ריחני עם פריחה סגולה. מתאים לשמש מלאה והשקיה מתונה.</p>
+          </div>
+        </article>
+
+        <!-- 2 -->
+        <article class="plant-card">
+          <div class="plant-image">
+            <img src="images/רוזמרין.webp" alt="רוזמרין">
+          </div>
+          <div class="plant-caption">
+            <h3>רוזמרין</h3>
+            <p>עמיד מאוד, אוהב שמש. מתאים לעציץ או לשתילה באדמה.</p>
+          </div>
+        </article>
+
+        <!-- 3 -->
+        <article class="plant-card">
+          <div class="plant-image">
+            <img src="images/גרניום.jpg" alt="גרניום">
+          </div>
+          <div class="plant-caption">
+            <h3>גרניום</h3>
+            <p>פריחה צבעונית לאורך זמן. מתאים למרפסת עם אור טוב.</p>
+          </div>
+        </article>
+
+        <!-- 4 -->
+        <article class="plant-card">
+          <div class="plant-image">
+            <img src="images/בזיליקום.jpg" alt="בזיליקום">
+          </div>
+          <div class="plant-caption">
+            <h3>בזיליקום</h3>
+            <p>תבלין אהוב, צריך אור והשקיה סדירה. מומלץ לקטיף תדיר.</p>
+          </div>
+        </article>
+
+        <!-- 5 -->
+        <article class="plant-card">
+          <div class="plant-image">
+            <img src="images/אלוורה.jpg" alt="אלוורה">
+          </div>
+          <div class="plant-caption">
+            <h3>אלוורה</h3>
+            <p>צמח חזק ופשוט לגידול. השקיה מועטה ואור טבעי.</p>
+          </div>
+        </article>
+
+        <!-- 6 -->
+        <article class="plant-card">
+          <div class="plant-image">
+            <img src="images/קקטוס.jpg" alt="קקטוס">
+          </div>
+          <div class="plant-caption">
+            <h3>קקטוס</h3>
+            <p>דורש מעט מים ותחזוקה מינימלית. מתאים לבית ולמרפסת.</p>
+          </div>
+        </article>
+
+        <!-- 7 -->
+        <article class="plant-card">
+          <div class="plant-image">
+            <img src="images/פוטוס.jpg" alt="פוטוס">
+          </div>
+          <div class="plant-caption">
+            <h3>פוטוס</h3>
+            <p>צמח בית פופולרי, קל לגידול ומתאים גם לתלייה.</p>
+          </div>
+        </article>
+
+        <!-- 8 -->
+        <article class="plant-card">
+          <div class="plant-image">
+            <img src="images/סנסיווריה.jpg" alt="סנסיווריה">
+          </div>
+          <div class="plant-caption">
+            <h3>סנסיווריה</h3>
+            <p>עמידה מאוד ודורשת מעט השקיה. מתאימה לבית ולמשרד.</p>
+          </div>
+        </article>
+
+        <!-- 9 -->
+        <article class="plant-card">
+          <div class="plant-image">
+            <img src="images/פלרגוניום.webp" alt="פלרגוניום">
+          </div>
+          <div class="plant-caption">
+            <h3>פלרגוניום</h3>
+            <p>פריחה נעימה וצבעונית. מתאים לעציצים ולאור טוב.</p>
+          </div>
+        </article>
+
+        <!-- 10 -->
+        <article class="plant-card">
+          <div class="plant-image">
+            <img src="images/מרווה.webp" alt="מרווה">
+          </div>
+          <div class="plant-caption">
+            <h3>מרווה</h3>
+            <p>תבלין וריחני, אוהבת שמש והשקיה מתונה.</p>
+          </div>
+        </article>
+
+        <!-- 11 -->
+        <article class="plant-card">
+          <div class="plant-image">
+            <img src="images/נענע.jpg" alt="נענע">
+          </div>
+          <div class="plant-caption">
+            <h3>נענע</h3>
+            <p>צמח תבלין מוכר שגדל מהר. אוהב מים ואור.</p>
+          </div>
+        </article>
+
+        <!-- 12 -->
+        <article class="plant-card">
+          <div class="plant-image">
+            <img src="images/טימין.jpg" alt="טימין">
+          </div>
+          <div class="plant-caption">
+            <h3>טימין</h3>
+            <p>תבלין עמיד שמתאים לשמש ולהשקיה מתונה.</p>
+          </div>
+        </article>
+
+        <!-- 13 -->
+        <article class="plant-card">
+          <div class="plant-image">
+            <img src="images/לנטנה.jpg" alt="לנטנה">
+          </div>
+          <div class="plant-caption">
+            <h3>לנטנה</h3>
+            <p>שיח פריחה צבעוני ועמיד לגינה.</p>
+          </div>
+        </article>
+
+        <!-- 14 -->
+        <article class="plant-card">
+          <div class="plant-image">
+            <img src="images/פטוניה.webp" alt="פטוניה">
+          </div>
+          <div class="plant-caption">
+            <h3>פטוניה</h3>
+            <p>פרח נפוץ עם פריחה עשירה. מתאים לעציצים ולמרפסות.</p>
+          </div>
+        </article>
+
+        <!-- 15 -->
+        <article class="plant-card">
+          <div class="plant-image">
+            <img src="images/יסמין.webp" alt="יסמין">
+          </div>
+          <div class="plant-caption">
+            <h3>יסמין</h3>
+            <p>צמח מטפס עם ריח נעים. מתאים לגינה ולמרפסת.</p>
+          </div>
+        </article>
+
+        <!-- 16 -->
+        <article class="plant-card">
+          <div class="plant-image">
+            <img src="images/בוגנווילה.webp" alt="בוגנוויליה">
+          </div>
+          <div class="plant-caption">
+            <h3>בוגנוויליה</h3>
+            <p>מטפס חזק עם צבעים בולטים. אוהב שמש מלאה.</p>
+          </div>
+        </article>
+
+        <!-- 17 -->
+        <article class="plant-card">
+          <div class="plant-image">
+            <img src="images/ורדים.jpg" alt="ורדים">
+          </div>
+          <div class="plant-caption">
+            <h3>ורדים</h3>
+            <p>שיח פריחה קלאסי ואהוב. מתאים לגינה עם שמש והשקיה סדירה.</p>
+          </div>
+        </article>
+
+        <!-- 18 -->
+        <article class="plant-card">
+          <div class="plant-image">
+            <img src="images/גרברה.jpg" alt="גרברה">
+          </div>
+          <div class="plant-caption">
+            <h3>גרברה</h3>
+            <p>פרח צבעוני ושמח. מתאים לעציצים עם אור טוב.</p>
+          </div>
+        </article>
+
+        <!-- 19 -->
+        <article class="plant-card">
+          <div class="plant-image">
+            <img src="images/ביגוניה.jpg" alt="ביגוניה">
+          </div>
+          <div class="plant-caption">
+            <h3>ביגוניה</h3>
+            <p>פריחה עדינה ומתמשכת. מתאימה לעציצים ולשמש חלקית.</p>
+          </div>
+        </article>
+
+        <!-- 20 -->
+        <article class="plant-card">
+          <div class="plant-image">
+            <img src="images/הדס.webp" alt="הדס">
+          </div>
+          <div class="plant-caption">
+            <h3>הדס</h3>
+            <p>שיח ירוק וריחני, מוכר מאוד ומתאים לגינה ישראלית.</p>
+          </div>
+        </article>
+
+      </div>
+
+      <p class="no-results" id="plants-no-results" hidden>
+        לא נמצאו תוצאות. נסו מילה אחרת 🙂
+      </p>
+    </section>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="/global.js"></script>
+  <script src="/plants/plants.js"></script>
+</body>
+
+</html>

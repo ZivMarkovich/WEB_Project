@@ -13,58 +13,47 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (!slider || !prevBtn || !nextBtn) return;
 
-        // חישוב המעבר: רוחב האלמנט הנראה (clientWidth) חלקי מספר הפריטים הנראים
-        // מכיוון שמשתמשים ב-flex: 0 0 X%, נשתמש ברוחב הכרטיסייה הראשונה
-        const firstItem = slider.querySelector(':scope > *'); // לוקח את האלמנט הילד הראשון
+        const firstItem = slider.querySelector(':scope > *'); 
         if (!firstItem) return;
 
-        // חישוב רוחב של פריט אחד כולל המרווח
-        const itemComputedStyle = window.getComputedStyle(firstItem);
-        const itemWidth = firstItem.offsetWidth;
-        const itemMarginLeft = parseFloat(itemComputedStyle.marginLeft || 0);
-        const singleItemScrollWidth = itemWidth + itemMarginLeft; 
-        
-        // כמות הגלילה הכוללת: רוחב פריט בודד * מספר הפריטים לגלילה
+        // --- חישוב מעבר מדויק ---
+        // לוקחים את הרווח שמוגדר ב-CSS (gap)
+        const gap = parseFloat(window.getComputedStyle(slider).gap) || 0;
+        // כמות הגלילה לפריט אחד היא הרווח של הכרטיסייה + הרווח שביניהן
+        const singleItemScrollWidth = firstItem.offsetWidth + gap; 
+    
+        // הכפלה במספר הפריטים שרוצים להזיז בכל לחיצה (אחד-אחד = 1)
         const scrollAmount = singleItemScrollWidth * itemsPerScroll; 
 
-        // --- לוגיקה לבדיקת מצב כפתור (RTL) ---
         const checkButtonStatus = () => {
             const maxScroll = slider.scrollWidth - slider.clientWidth;
             const currentScroll = slider.scrollLeft; 
-            const threshold = 5; // סף בטחון לטעויות עיגול
+            const threshold = 5;
 
-            // 1. כפתור קודם (PREV / ימין): מושבת אם אנחנו במיקום ההתחלה (קרוב ל-0).
-            if (currentScroll >= -threshold && currentScroll <= threshold) {
-                 prevBtn.disabled = true;
+            // בדיקת קצוות ב-RTL
+            if (Math.abs(currentScroll) <= threshold) {
+                prevBtn.disabled = true;
             } else {
-                 prevBtn.disabled = false;
+                prevBtn.disabled = false;
             }
 
-            // 2. כפתור הבא (NEXT / שמאל): מושבת אם הגענו לקצה השמאלי.
-            // בודקים אם ההיסט השלילי קרוב ל-(maxScroll).
-            if (currentScroll <= -(maxScroll - threshold)) {
+            if (Math.abs(currentScroll) >= (maxScroll - threshold)) {
                 nextBtn.disabled = true;
             } else {
                 nextBtn.disabled = false;
             }
         };
-        
-        // --- איתחול והוספת מאזינים ---
-        
-        // 1. קביעת מצב התחלתי
+    
         checkButtonStatus(); 
-
-        // 2. הוספת מאזין גלילה רציף (מעדכן את הכפתורים גם בגלילת מגע)
         slider.addEventListener('scroll', checkButtonStatus);
 
-        // 3. פונקציות מעבר 
         nextBtn.addEventListener('click', () => {
-            // מעבר שמאלה (ערך שלילי)
+            // ב-RTL גלילה שמאלה היא בערך שלילי
             slider.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
         });
 
         prevBtn.addEventListener('click', () => {
-            // מעבר ימינה (ערך חיובי)
+            // ב-RTL גלילה ימינה היא בערך חיובי
             slider.scrollBy({ left: scrollAmount, behavior: 'smooth' });
         });
     };
@@ -74,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ------------------------------------------------------------------
 
     // 1. הפעלת סליידר ההמלצות (מציג 2 כרטיסיות בכל פעם)
-    initializeSlider('.testimonials-slider', '.prev-btn', '.next-btn', 2); 
+    initializeSlider('.testimonials-slider', '.prev-btn', '.next-btn', 1); 
 
     // 2. הפעלת סליידר הפורטפוליו (מציג כרטיסייה אחת של לפני/אחרי בכל פעם)
     initializeSlider('.portfolio-slider', '.portfolio-prev-btn', '.portfolio-next-btn', 1); 
