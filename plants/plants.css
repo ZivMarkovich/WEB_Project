@@ -1,0 +1,267 @@
+/* ################################################################### */
+/* PLANTS PAGE - Catalog */
+/* ################################################################### */
+
+/* HERO - כמו AboutUs */
+.hero-intro {
+  padding: 40px 50px 0;
+  background-color: transparent;
+}
+
+.banner-overlay {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.banner-overlay img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.overlay-text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.overlay-text h1 {
+  font-size: 50px;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+  margin: 0;
+}
+
+/* Intro */
+.plants-intro {
+  padding: 40px 10%;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.plants-intro h2 {
+  margin-bottom: 20px;
+  font-size: 35px;
+}
+
+.plants-intro p {
+  max-width: 800px;
+  margin: 0 auto 0;
+  font-size: 1.1em;
+  color: #333;
+  line-height: 1.8;
+}
+
+/* Search (חדש) */
+.plants-search {
+  margin: 24px auto 0;
+  max-width: 700px;
+  text-align: center;
+}
+
+.plants-search input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid #ddd;
+  border-radius: 25px;
+  font-size: 1em;
+  outline: none;
+  transition: border-color 0.25s, box-shadow 0.25s;
+  font-family: inherit;
+}
+
+.plants-search input:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.06);
+}
+
+.plants-search-meta {
+  margin-top: 10px;
+  color: #555;
+  font-size: 0.95em;
+}
+
+/* Grid */
+.plants-section {
+  padding: 60px 5%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.plants-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+/* Card */
+.plant-card {
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.plant-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.plant-image img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  display: block;
+}
+
+.plant-caption {
+  border-top: 3px solid var(--color-accent);
+  background-color: #fff;
+  padding: 14px 14px 16px;
+  text-align: right;
+}
+
+.plant-caption h3 {
+  margin: 0 0 8px;
+  font-size: 1.15em;
+  color: var(--color-primary);
+}
+
+.plant-caption p {
+  margin: 0;
+  font-size: 0.95em;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* No results text */
+.no-results {
+  margin-top: 26px;
+  text-align: center;
+  color: #555;
+  font-size: 1.05em;
+}
+
+/* A11y helper */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* ################################################################### */
+/* Responsive */
+/* ################################################################### */
+
+/* ------------------------------------- */
+/* 1. דסקטופ קטן: בין 901px ל- 1200px */
+/* ------------------------------------- */
+@media (min-width: 901px) and (max-width: 1200px) {
+
+  .plants-intro {
+    padding: 40px 6%;
+  }
+
+  .plants-section {
+    padding: 50px 4%;
+  }
+
+  .plants-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+  }
+
+  .overlay-text h1 {
+    font-size: 44px;
+  }
+}
+
+/* ------------------------------------- */
+/* 2. טאבלט: בין 601px ל- 900px */
+/* ------------------------------------- */
+@media (min-width: 601px) and (max-width: 900px) {
+
+  .hero-intro {
+    padding: 30px 20px 0;
+  }
+
+  .banner-overlay {
+    height: 320px;
+  }
+
+  .overlay-text h1 {
+    font-size: 36px;
+  }
+
+  .plants-intro {
+    padding: 34px 6%;
+  }
+
+  .plants-intro h2 {
+    font-size: 30px;
+  }
+
+  .plants-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+
+  .plant-image img {
+    height: 200px;
+  }
+}
+
+/* ------------------------------------- */
+/* 3. מובייל: עד 600px */
+/* ------------------------------------- */
+@media (max-width: 600px) {
+
+  .hero-intro {
+    padding: 25px 16px 0;
+  }
+
+  .banner-overlay {
+    height: 250px;
+  }
+
+  .overlay-text h1 {
+    font-size: 28px;
+    padding: 0 10px;
+  }
+
+  .plants-intro {
+    padding: 30px 6%;
+  }
+
+  .plants-intro h2 {
+    font-size: 26px;
+  }
+
+  .plants-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .plant-image img {
+    height: 210px;
+  }
+}
+
