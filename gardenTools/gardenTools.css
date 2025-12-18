@@ -165,18 +165,73 @@
   border: 0;
 }
 
+/* ################################################################### */
 /* Responsive */
-@media (max-width: 900px) {
+/* ################################################################### */
+
+/* ------------------------------------- */
+/* 1. דסקטופ קטן: בין 901px ל- 1200px */
+/* ------------------------------------- */
+@media (min-width: 901px) and (max-width: 1200px) {
+
+  .gardenTools-intro {
+    padding: 40px 6%;
+  }
+
+  .gardenTools-section {
+    padding: 50px 4%;
+  }
+
   .gardenTools-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
   }
 
   .overlay-text h1 {
-    font-size: 40px;
+    font-size: 44px;
   }
 }
 
+/* ------------------------------------- */
+/* 2. טאבלט: בין 601px ל- 900px */
+/* ------------------------------------- */
+@media (min-width: 601px) and (max-width: 900px) {
+
+  .hero-intro {
+    padding: 30px 20px 0;
+  }
+
+  .banner-overlay {
+    height: 320px;
+  }
+
+  .overlay-text h1 {
+    font-size: 36px;
+  }
+
+  .gardenTools-intro {
+    padding: 34px 6%;
+  }
+
+  .gardenTools-intro h2 {
+    font-size: 30px;
+  }
+
+  .gardenTools-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+
+  .gardenTool-image img {
+    height: 200px;
+  }
+}
+
+/* ------------------------------------- */
+/* 3. מובייל: עד 600px */
+/* ------------------------------------- */
 @media (max-width: 600px) {
+
   .hero-intro {
     padding: 25px 16px 0;
   }
@@ -187,6 +242,7 @@
 
   .overlay-text h1 {
     font-size: 28px;
+    padding: 0 10px;
   }
 
   .gardenTools-intro {
@@ -206,3 +262,4 @@
     height: 210px;
   }
 }
+
