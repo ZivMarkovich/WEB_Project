@@ -104,7 +104,7 @@
 .team-grid {
     display: grid;
     /* 3 עמודות על מסך רחב, משתנה בהתאם לגודל המינימלי */
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 30px;
 }
 
@@ -313,12 +313,6 @@
         padding: 40px 8%;
     }
 
-    /* הצוות - מעבר ל-2 עמודות כדי שהכרטיסים יהיו רחבים ונוחים לקריאה */
-    .team-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 25px;
-    }
-
     /* FAQ - צמצום קל של רוחב האקורדיון */
     .accordion-container {
         max-width: 850px;
@@ -340,10 +334,6 @@
 
     .hero-home .overlay-text h1 {
         font-size: 42px;
-    }
-
-    .features-grid {
-        grid-template-columns: repeat(2, 1fr);
     }
 }
 
@@ -368,9 +358,6 @@
         font-size: 1.1rem;
     }
 
-    .features-grid {
-        grid-template-columns: 1fr;
-    }
 }
 
 /* ====================================================== */
@@ -402,13 +389,8 @@
     .cta-section {
         padding: 40px 5%;
     }
-}
 
-/* ====================================================== */
-/* דסקטופ (768px ומעלה) */
-/* ====================================================== */
-@media (min-width: 768px) {
-    .features-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
+    .team-grid {
+    grid-template-columns: 1fr;
+}
 }
