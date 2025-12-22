@@ -1,36 +1,36 @@
 :root {
-    /* הגדרת משתני הצבעים */
+    /* Color Palette Variables */
     --olive-green: #869D7A;
     --dark-brown: #8B5D33;
     --bottle-green: #0a5c0a;
     --main-font: "Open Sans", sans-serif;
 }
 
-/* איפוס בסיסי */
+/* Basic Reset */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
+/* Typography Defaults */
 h1 {
-    font-size: 50px !important; 
-    color: white !important; 
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6) !important;
-    margin: 0 !important;
+    font-size: 50px; 
+    color: white; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    margin: 0;
 }
 
 h2 {
-    text-align: center !important;
-    margin-bottom: 25px !important;
-    font-size: 35px !important;
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 35px;
     color: var(--olive-green);
 }
 
 h3 {
     color: var(--olive-green);
 }
-
 
 body {
     font-family: var(--main-font);
@@ -49,12 +49,13 @@ a {
     text-decoration: none;
     transition: color 0.3s;
 }
+
+/* Default state: Disable click on dropdown toggle (Desktop uses hover) */
 .dropdown > a {
     pointer-events: none;
     cursor: default;
     color: white;
 }
-
 
 a:hover {
     color: var(--dark-brown);
@@ -69,35 +70,46 @@ img {
     height: auto;
 }
 
-/* --- עיצוב HEADER --- */
-.main-header {
-    display: flex;
-    justify-content: space-between; 
-    align-items: center; 
-    padding: 15px 30px;
-    background-color: var(--olive-green); 
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); 
-    width: 100%;
-    }
+/* --- Header Styling --- */
 
-.logo a img {
-    height: 110px; 
-    width: 110px;
-    border-radius: 50%; 
-    margin-right: 200px;
+/* Prevents layout shift (CLS) during header load */
+#header-placeholder {
+    min-height: 148px; 
+    display: block; 
 }
 
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--olive-green);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    gap: 20px; 
 
-/* --- ניווט ראשי (Main Navigation) --- */
+    /* Responsive Centering Logic: Keeps content centered with safe margins */
+    padding: 15px max(30px, calc(50% - 600px));
+}
+
+.logo a img {
+    height: 110px;
+    width: 110px;
+    border-radius: 50%;
+    margin-right: 0; 
+    flex-shrink: 0; 
+}
+
+/* --- Main Navigation --- */
 .main-nav > ul {
     display: flex;
     justify-content: center;
     gap: 50px; 
 }
 
-.main-nav{
+.main-nav {
     flex-grow: 1;
     text-align: center;
+    min-width: 0; 
 }
 
 .main-nav a {
@@ -113,19 +125,18 @@ img {
     background-color: whitesmoke;
     color: black;
 }
-/* --- עיצוב כפתור פעיל (הדף הנוכחי) --- */
+
+/* Active Page Indicator */
 .main-nav a.active {
-    color: black; /* צבע טקסט */
-      
+    color: black; 
 }
 
-/* --- Dropdown (קטלוג) --- */
+/* --- Dropdown Menu Logic --- */
 .dropdown {
     position: relative;
-    }
+}
 
 .dropdown-menu {
-    
     display: none; 
     position: absolute;
     top: 30px; 
@@ -136,12 +147,11 @@ img {
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     right: -30px;
     z-index: 999;
-
 }
 
-
-.dropdown:hover .dropdown-menu {
-    display: block; 
+/* Display menu when JS adds 'menu-open' class (Mobile/Tablet) */
+.dropdown.menu-open .dropdown-menu {
+    display: block;
 }
 
 .dropdown-menu li a {
@@ -159,6 +169,7 @@ img {
     background-color: whitesmoke;
     color: black;
 }
+
 .dropdown-menu li {
     border-bottom: 1px solid var(--olive-green);
 }
@@ -167,13 +178,12 @@ img {
     border-bottom: none;
 }
 
-/* אייקוני רשתות חברתיות */
+/* --- Social Icons --- */
 .social-icons {
     display: flex;
-    gap: 20px;
-    margin-left: 200px;
-    
-    
+    gap: 15px;
+    margin-left: 0;
+    flex-shrink: 0;
 }
 
 .social-icons img {
@@ -182,13 +192,14 @@ img {
     border-radius: 50%;
     opacity: 0.8;
     transition: opacity 0.3s;
+    object-fit: cover;
 }
 
 .social-icons img:hover {
     opacity: 1;
 }
 
-/* --- עיצוב FOOTER --- */
+/* --- Footer Styling --- */
 .main-footer {
     background-color: var(--dark-brown); 
     color: white; 
@@ -199,12 +210,11 @@ img {
     margin: 0;
 }
 
-
 .footer-social {
     display: flex;
     justify-content: center;
     flex-wrap: wrap; 
-    gap: 30px; /* דרישה 6: מרווחים גדולים יותר */
+    gap: 30px; 
     margin-bottom: 15px;
 }
 
@@ -219,52 +229,65 @@ img {
 }
 
 html, body {
-    /* הכלל החשוב: מונע תוכן מלחרוג מרוחב המכשיר */
-    overflow-x: hidden; 
-    
-    /* מוודא שאלמנט הבסיס תופס 100% מהרוחב הזמין */
+    overflow-x: hidden; /* Prevents horizontal scroll */
     width: 100%;
     margin: 0;
     padding: 0; 
 }
 
+/* --- Responsiveness --- */
 
-/* --- רספונסיביות --- */
-/* ------------------------------------- */
-/* 1. דסקטופ קטן: בין 901px ל- 1200px */
-/* ------------------------------------- */
+/* 1. Small Laptops & iPad Pro (901px - 1200px) */
 @media (min-width: 901px) and (max-width: 1200px) {
    
-    /* הכללים האלה חלים רק ברוחב הזה */
-    .logo a img {
-        margin-right: 50px; /* צמצום מ-200px ל-50px */
-    }
-
-
     .main-nav > ul {
-        gap: 30px;
+        gap: 20px; /* Reduces spacing to fit content */
+    }
+    
+    .logo a img {
+        height: 90px;
+        width: 90px;
     }
 
+    /* Enable click events for touch-enabled laptops/tablets */
+    .dropdown > a {
+        pointer-events: auto; 
+        cursor: pointer;
+    }
 
-    .social-icons {
-        margin-left: 50px;
+    /* Adjust dropdown position for smaller screens */
+    .dropdown-menu {
+        right: auto; 
+        position: absolute;
+        top: 90%; 
+        margin-top: 10px; 
+        left: 50%;
+        transform: translateX(-50%); /* Centers the menu */
+        width: max-content;
+        min-width: 160px;
+        background-color: white;
+        border: 1px solid var(--olive-green);
+        border-radius: 5px;
+        text-align: center;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        z-index: 9999;
     }
 }
 
-/* ------------------------------------- */
-/* 2. טאבלט: בין 601px ל- 900px */
-/* ------------------------------------- */
+/* 2. Tablets (601px - 900px) */
 @media (min-width: 601px) and (max-width: 900px) {
    
-    /* הכללים האלה חלים רק ברוחב הזה - הפריסה האנכית */
+    /* Adjusted placeholder height for single-row layout */
+    #header-placeholder {
+        min-height: 242px; 
+    }
+    
     .main-header {
         flex-direction: column;
         gap: 15px;
         padding: 15px 10px;
     }
 
-
-    /* ביטול מרווחי ה-200px והקטנת לוגו */
     .logo a img {
         height: 80px;
         width: 80px;
@@ -272,62 +295,150 @@ html, body {
         margin-bottom: 10px;
     }
    
-    /* מעבר ל-column וצמצום רווחים בתפריט */
     .main-nav > ul {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
+        flex-direction: row; 
+        flex-wrap: wrap; 
+        justify-content: center;
+        gap: 20px;
+        padding: 0;
     }
    
-    /* ... וכל שאר הכללים שהגדרת ל-900px ... */
-   
-    /* ביטול מרווחי ה-200px ברשתות החברתיות */
     .social-icons {
         justify-content: center;
         margin-left: 0;
     }
+
+    /* --- Tablet Dropdown Logic --- */
+    .dropdown {
+        position: relative;
+    }
+
+    .dropdown-menu {
+        right: auto; 
+        position: absolute;
+        top: 90%; 
+        margin-top: 10px; 
+        left: 50%;
+        transform: translateX(-50%);
+        width: max-content;
+        min-width: 160px;
+        background-color: white;
+        border: 1px solid var(--olive-green);
+        border-radius: 5px;
+        text-align: center;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        z-index: 9999;
+    }
+
+    /* Display block when JS adds class */
+    .dropdown.menu-open .dropdown-menu {
+        display: block;
+    }
+
+    /* Enable click for touch interaction */
+    .dropdown > a {
+        pointer-events: auto; 
+        cursor: pointer;
+    }
 }
 
-
-
-
-/* ------------------------------------- */
-/* 3. מובייל: עד 600px */
-/* ------------------------------------- */
+/* 3. Mobile Devices (Max 600px) */
 @media (max-width: 600px) {
-    /* הכללים האלה חלים רק על מובייל צר */
-   
-    /* מכריח את כללי ה-900px לרוץ קודם */
-    /* ***חשוב: נשתמש בכללים מ-900px ונשנה רק את מה שצריך *** */
-
+    
+    #header-placeholder {
+        min-height: 148px; 
+    }
 
     .main-header {
-        flex-direction: column; /* שומרים על ערימה אנכית */
-        gap: 10px;
+        flex-direction: column; 
+        gap: 5px; 
+        padding: 5px 2px;
+        position: relative;
+        z-index: 1000;
     }
-
 
     .logo a img {
-        height: 60px; /* הקטנה נוספת */
-        width: 60px;
-        margin-right: 0;
+        height: 50px;
+        width: 50px;
+        margin: 0 auto;
+        display: block;
     }
-   
-    .main-nav a {
-        font-size: 0.9rem; /* הקטנת הגופן */
-        padding: 5px 10px;
-    }
-   
-    .social-icons {
-        display: none; /* מסתירים את הסושיאל במובייל צר */
-        margin-left: 0;
+    
+    .main-nav > ul {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap; /* Forces single line */
+        justify-content: center;
+        align-items: center;
+        gap: 2px;
+        width: 100%;
+        margin: 5px 0 0 0;
+        padding: 0;
     }
 
+    .main-nav a {
+        font-size: 0.8rem;
+        padding: 8px 6px;
+        white-space: nowrap;
+    }
+
+    /* --- Mobile Dropdown --- */
+    .dropdown {
+        position: relative;
+    }
+
+    .dropdown-menu {
+        display: none; 
+        position: absolute;
+        top: 110%; /* Slight offset from button */
+        left: 50%; 
+        transform: translateX(-50%);
+        right: auto; 
+        width: max-content; 
+        min-width: 120px;
+        background-color: white;
+        border: 1px solid var(--olive-green);
+        border-radius: 4px;
+        padding: 5px 0;
+        z-index: 9999;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .dropdown > a {
+        pointer-events: auto; /* Enable touch */
+    }
+
+    .dropdown-menu li a {
+        display: block;
+        padding: 8px 15px;
+        text-align: center;
+        color: var(--olive-green);
+        white-space: nowrap;
+    }
+
+    .dropdown.menu-open .dropdown-menu {
+        display: block;
+    }
+    
+    /* Hide header icons on mobile (shown in contact page instead) */
+    .main-header .social-icons {
+        display: none; 
+    }
+    
+    /* Ensure Contact Page icons remain visible */
+    .contact-info-wrapper .social-icons {
+        display: flex;
+        justify-content: center;
+    }
 
     .main-footer {
         padding: 20px 10px;
     }
-   
-    /* ... וכל שאר הכללים הספציפיים ל-600px ... */
 }
 
+/* Desktop Only: Open dropdown on Hover */
+@media (min-width: 901px) {
+    .dropdown:hover .dropdown-menu {
+        display: block;
+    }
+}
