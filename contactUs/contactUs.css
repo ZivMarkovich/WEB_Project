@@ -54,15 +54,6 @@
     background-color: rgba(0, 0, 0, 0.2);
 }
 
-
-/* כותרת על גבי התמונה */
-.overlay-text h1 {
-    font-size: 40px;
-    color: white;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
-    margin: 0;
-}
-
 h2 {
     margin-top: 40px;
 }
@@ -162,7 +153,6 @@ h3 {
 .contact-form textarea {
     width: 100%;
     border: 1px solid var(--olive-green);
-    background-color: #fdfdfd;
     border-radius: 6px;
     padding: 7px 8px;
     font-family: var(--main-font);
@@ -331,7 +321,7 @@ h3 {
     }
 
     .overlay-text h1 {
-        font-size: 36px;
+        font-size: 2.2rem;
     }
 
     .contact-form-wrapper {
@@ -352,7 +342,7 @@ h3 {
     }
 
     .overlay-text h1 {
-        font-size: 32px;
+        font-size: 3rem;
     }
 
     /* מעבר לפריסה טורית - הטופס מעל המידע */
@@ -378,17 +368,20 @@ h3 {
 /* ====================================================== */
 @media (max-width: 600px) {
     .hero-intro {
-        padding: 20px 10px 0;
+        padding: 15px 10px 0;
     }
 
     .hero-intro .banner-overlay {
-        height: 220px;
-        margin: 0 10px; /* רווח מהצדדים כמו ב-About Us */
+        height: 200px;
+        width: 100%; 
+        margin: 0 auto;
         border-radius: 8px;
+        display: block;
     }
 
     .overlay-text h1 {
-        font-size: 26px !important;
+        font-size: 1.5rem;
+        padding: 0 15px;
     }
 
     /* דחיסת הגריד פנימה */
@@ -406,7 +399,7 @@ h3 {
     /* כל השדות הופכים לטור אחד מלא */
     .form-group-triple,
     .form-group-double {
-        flex-direction: column;
+        flex-direction: column; 
         gap: 15px;
     }
 
