@@ -2,26 +2,45 @@
 <html lang="he" dir="rtl">
 
 <head>
+  <!-- =========================================================
+       META / PAGE SETTINGS
+       - Charset + responsive viewport
+       - Page title shown in the browser tab
+  ========================================================= -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>צומחים יחד | אביזרים נלווים</title>
 
+  <!-- =========================================================
+       FONTS
+       - Preconnect for faster loading
+       - Google Fonts: M PLUS Rounded + Open Sans
+  ========================================================= -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
     rel="stylesheet">
 
+  <!-- =========================================================
+       STYLES
+       - global.css: shared styles (header/footer, colors, layout)
+       - accessories.css: page-specific styles for this catalog
+  ========================================================= -->
   <link rel="stylesheet" href="/global.css">
   <link rel="stylesheet" href="/accessories/accessories.css">
 </head>
 
 <body>
 
+  <!-- Header is injected via global.js -->
   <div id="header-placeholder"></div>
 
   <main>
-    <!-- HERO -->
+    <!-- =========================================================
+         HERO SECTION
+         - Banner image + overlay text (headline)
+    ========================================================= -->
     <section class="hero-intro">
       <div class="banner-overlay">
         <img src="images/dbadf8cfe21548a6adaccb83ba254961.jpg" alt="אביזרים נלווים לגינה">
@@ -31,7 +50,11 @@
       </div>
     </section>
 
-    <!-- Intro + Search -->
+    <!-- =========================================================
+         INTRO + SEARCH
+         - Page headline + short description
+         - Search input filters the cards on the client side
+    ========================================================= -->
     <section class="accessories-intro">
       <div class="content-wrapper">
         <h2>הפרטים הקטנים שעושים את ההבדל</h2>
@@ -39,6 +62,7 @@
           כאן תמצאו אביזרים משלימים לגינה ולמרפסת – לעציצים, השקיה, סידור ועיצוב.
         </p>
 
+        <!-- Search box + results counter -->
         <div class="accessories-search">
           <input
             id="accessories-search-input"
@@ -54,7 +78,11 @@
       </div>
     </section>
 
-    <!-- Grid -->
+    <!-- =========================================================
+         CATALOG GRID
+         - Cards (image + title + short description)
+         - JS adds a "בדיקת זמינות" button to each card caption
+    ========================================================= -->
     <section class="accessories-section">
       <div class="accessories-grid" id="accessories-grid">
 
@@ -280,14 +308,53 @@
 
       </div>
 
+      <!-- Empty state message (shown only when no cards match the search) -->
       <p class="no-results" id="accessories-no-results" hidden>
         לא נמצאו תוצאות. נסו מילה אחרת 🙂
       </p>
     </section>
   </main>
 
+  <!-- Footer is injected via global.js -->
   <div id="footer-placeholder"></div>
 
+  <!-- =========================================================
+       STOCK MODAL
+       - Hidden by default, opened via the "בדיקת זמינות" button
+       - Includes a form for quantity + result message area
+  ========================================================= -->
+  <div class="stock-modal-backdrop" id="stock-modal" hidden>
+    <div class="stock-modal" role="dialog" aria-modal="true" aria-label="בדיקת זמינות">
+      <h3>בדיקת זמינות</h3>
+      <p class="modal-subtitle" id="stock-modal-subtitle"></p>
+
+      <form id="stock-modal-form" novalidate>
+        <label>
+          כמות:
+          <input id="stock-modal-qty" type="number" inputmode="numeric" min="1" step="1" required
+            placeholder="לדוגמה: 3" />
+        </label>
+
+        <!-- Validation errors -->
+        <div class="stock-error" id="stock-modal-error" aria-live="polite"></div>
+
+        <!-- Action buttons -->
+        <div class="modal-actions">
+          <button type="submit" class="check-stock-btn">בדוק זמינות</button>
+          <button type="button" class="close-modal-btn" id="stock-modal-close">סגור</button>
+        </div>
+
+        <!-- Result message -->
+        <div class="stock-result" id="stock-modal-result" aria-live="polite"></div>
+      </form>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       SCRIPTS
+       - global.js: loads shared header/footer (and any global behaviors)
+       - accessories.js: search + stock modal logic for this page
+  ========================================================= -->
   <script src="/global.js"></script>
   <script src="/accessories/accessories.js"></script>
 </body>
