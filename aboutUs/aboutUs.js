@@ -1,15 +1,14 @@
 /**
  * aboutUs.js
- * מטפל בלוגיקה הספציפית לדף אודות:
- * 1. ניהול לשוניות (Tabs) למעבר בין קהלי יעד ב-FAQ.
- * 2. ניהול אקורדיון (Accordion) לפתיחה וסגירה של שאלות.
+ * Handles page-specific logic for the About Us page:
+ * 1. FAQ Tab navigation for switching target audiences.
+ * 2. Accordion functionality for expanding/collapsing questions.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    // ###################################################################
-    // 1. לוגיקה של לשוניות (Tabs) - מעבר בין קטגוריות FAQ
-    // ###################################################################
+    /* --- FAQ Tabs Logic --- */
+    /* Manages category switching between Private, Committees, and Management FAQ sections */
 
     const tabButtons = document.querySelectorAll('.faq-tabs .tab-button');
     const accordionContainers = document.querySelectorAll('.accordion-container');
@@ -18,19 +17,17 @@ document.addEventListener('DOMContentLoaded', () => {
         button.addEventListener('click', () => {
             const targetId = button.getAttribute('data-target'); // private, committees, management
 
-            // 1. הסרת הקלאס 'active' מכל הכפתורים
+            // Phase 1: Reset - Remove 'active' state from all buttons and hide all containers
             tabButtons.forEach(btn => btn.classList.remove('active'));
             
-            // 2. הסתרת כל תוכן האקורדיון באמצעות הקלאס 'hidden'
             accordionContainers.forEach(container => {
                 container.classList.remove('active');
-                container.classList.add('hidden'); // ה-CSS מטפל בהסתרה חלקה
+                container.classList.add('hidden'); // CSS handles the smooth disappearance
             });
 
-            // 3. הוספת הקלאס 'active' לכפתור שנלחץ
+            // Phase 2: Activation - Highlight the selected tab and show the relevant container
             button.classList.add('active');
 
-            // 4. הצגת ה-accordion-container המתאים (והסרת ה-hidden)
             const targetContainer = document.getElementById(targetId);
             if (targetContainer) {
                 targetContainer.classList.remove('hidden'); 
@@ -40,9 +37,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    // ###################################################################
-    // 2. לוגיקה של אקורדיון (Accordion) - פתיחה וסגירה של תשובות
-    // ###################################################################
+    /* --- FAQ Accordion Logic --- */
+    /* Handles smooth expanding and collapsing of individual FAQ answers */
 
     const accordionHeaders = document.querySelectorAll('.accordion-header');
 
@@ -51,28 +47,25 @@ document.addEventListener('DOMContentLoaded', () => {
             const content = header.nextElementSibling; // div.accordion-content
             const isExpanded = header.getAttribute('aria-expanded') === 'true';
             
-            // מצא את ה-accordion-container הנוכחי כדי לסגור אחים
+            // Auto-close: Finds the current container to collapse sibling items for better UX
             const currentContainer = header.closest('.accordion-container');
             const siblingHeaders = currentContainer.querySelectorAll('.accordion-header');
 
-            // סגירת כל האקורדיונים האחרים באותו קונטיינר
             siblingHeaders.forEach(otherHeader => {
                 const otherContent = otherHeader.nextElementSibling;
                 if (otherHeader !== header && otherHeader.getAttribute('aria-expanded') === 'true') {
                     otherHeader.setAttribute('aria-expanded', 'false');
-                    otherContent.style.maxHeight = null; // סגירה
+                    otherContent.style.maxHeight = null; // Collapses the sibling
                 }
             });
 
-            // פתיחה או סגירה של האקורדיון הנוכחי
+            // Toggle Logic: Opens or closes the clicked item based on its current state
             if (isExpanded) {
-                // סגירה
                 header.setAttribute('aria-expanded', 'false');
-                content.style.maxHeight = null;
+                content.style.maxHeight = null; // Collapse current
             } else {
-                // פתיחה
                 header.setAttribute('aria-expanded', 'true');
-                // הגדרת גובה ל-maxHeight שווה לגובה התוכן (כולל Padding)
+                /* scrollHeight provides the exact content height, enabling a smooth CSS transition */
                 content.style.maxHeight = content.scrollHeight + "px";
             }
         });
