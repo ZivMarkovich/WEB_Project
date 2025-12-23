@@ -4,41 +4,36 @@ document.addEventListener('DOMContentLoaded', () => {
     cards.forEach(card => {
         card.addEventListener('click', function(e) {
             
-            // --- תיקון הבעיה של הכפתור ---
-            // בדיקה: האם הלחיצה קרתה על הכפתור (או על הטקסט שבתוכו)?
+            /* --- Button Logic Fix --- */
+            /* Check if the click target is the link button to prevent conflicts with the flip animation */
             const linkBtn = e.target.closest('.details-link');
             
             if (linkBtn) {
-                // מונע מהדפדפן להתבלבל
                 e.preventDefault(); 
-                e.stopPropagation();
+                e.stopPropagation(); // Stops the click from triggering the card flip
                 
-                // לוקח את הכתובת מהכפתור ומעביר את המשתמש בכוח
                 const targetUrl = linkBtn.getAttribute('href');
                 if (targetUrl) {
-                    window.location.href = targetUrl;
+                    window.location.href = targetUrl; // Manually trigger navigation
                 }
-                return; // יוצא מהפונקציה, סיימנו כאן
+                return; 
             }
-            // -----------------------------
 
-            // מכאן: לוגיקה של היפוך כרטיסיות (למובייל וטאבלט)
-            
-            // האם הכרטיסייה הזו כבר פתוחה?
+            /* --- Flip Logic (Mobile/Tablet) --- */
+            /* Toggles the 'flipped' class to reveal the back side on touch devices */
             const isFlipped = this.classList.contains('flipped');
 
-            // קודם כל - סגור את כולם
+            // Close all other cards before opening the selected one
             cards.forEach(c => c.classList.remove('flipped'));
 
-            // אם לחצנו על כרטיסייה סגורה - תפתח אותה
-            // (אם לחצנו על פתוחה - היא כבר נסגרה בשורה למעלה, אז לא עושים כלום)
             if (!isFlipped) {
                 this.classList.add('flipped');
             }
         });
     });
 
-    // סגירת כרטיסייה כשלוחצים מחוץ לכרטיסיות (לניקיון)
+    /* --- Outside Click Detection --- */
+    /* Closes any open cards when the user clicks elsewhere on the page */
     document.addEventListener('click', (e) => {
         if (!e.target.closest('.service-card')) {
             cards.forEach(c => c.classList.remove('flipped'));
