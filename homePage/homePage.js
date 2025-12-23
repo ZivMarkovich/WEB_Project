@@ -1,36 +1,32 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // --- פונקציה גנרית לאתחול כל סליידר ---
-    /* * sliderSelector: מחלקת ה-div של משטח הגלילה (e.g., '.testimonials-slider')
-     * prevBtnSelector: מחלקת כפתור הקודם (e.g., '.prev-btn')
-     * nextBtnSelector: מחלקת כפתור הבא (e.g., '.next-btn')
-     * itemsPerScroll: כמה פריטים לגלול בכל לחיצה (1 עבור Portfolio, 2 עבור Testimonials)
-     */
+    // Generic slider initializer used by multiple sections on the page
     const initializeSlider = (sliderSelector, prevBtnSelector, nextBtnSelector, itemsPerScroll) => {
         const slider = document.querySelector(sliderSelector);
         const prevBtn = document.querySelector(prevBtnSelector);
         const nextBtn = document.querySelector(nextBtnSelector);
 
+        // Exit early if slider structure is incomplete
         if (!slider || !prevBtn || !nextBtn) return;
 
+        // First item is used to calculate consistent scroll distance
         const firstItem = slider.querySelector(':scope > *'); 
         if (!firstItem) return;
 
-        // --- חישוב מעבר מדויק ---
-        // לוקחים את הרווח שמוגדר ב-CSS (gap)
+        // Include CSS gap in scroll calculation to keep items aligned
         const gap = parseFloat(window.getComputedStyle(slider).gap) || 0;
-        // כמות הגלילה לפריט אחד היא הרווח של הכרטיסייה + הרווח שביניהן
         const singleItemScrollWidth = firstItem.offsetWidth + gap; 
     
-        // הכפלה במספר הפריטים שרוצים להזיז בכל לחיצה (אחד-אחד = 1)
+        // Multiply the number of items you want to move with each click (one after another -> 1)
         const scrollAmount = singleItemScrollWidth * itemsPerScroll; 
 
+        // Enable / disable navigation buttons at scroll boundaries (RTL-safe)
         const checkButtonStatus = () => {
             const maxScroll = slider.scrollWidth - slider.clientWidth;
             const currentScroll = slider.scrollLeft; 
-            const threshold = 5;
+            const threshold = 5; // Prevent precision issues near edges
 
-            // בדיקת קצוות ב-RTL
+            // RTL rhythm check
             if (Math.abs(currentScroll) <= threshold) {
                 prevBtn.disabled = true;
             } else {
@@ -47,24 +43,19 @@ document.addEventListener('DOMContentLoaded', () => {
         checkButtonStatus(); 
         slider.addEventListener('scroll', checkButtonStatus);
 
+        // RTL scrolling: negative = forward, positive = backward
         nextBtn.addEventListener('click', () => {
-            // ב-RTL גלילה שמאלה היא בערך שלילי
             slider.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
         });
 
         prevBtn.addEventListener('click', () => {
-            // ב-RTL גלילה ימינה היא בערך חיובי
             slider.scrollBy({ left: scrollAmount, behavior: 'smooth' });
         });
     };
 
-    // ------------------------------------------------------------------
-    // --- הפעלת הסליידרים בדף הבית ---
-    // ------------------------------------------------------------------
-
-    // 1. הפעלת סליידר ההמלצות (מציג 2 כרטיסיות בכל פעם)
+    // Testimonials slider
     initializeSlider('.testimonials-slider', '.prev-btn', '.next-btn', 1); 
 
-    // 2. הפעלת סליידר הפורטפוליו (מציג כרטיסייה אחת של לפני/אחרי בכל פעם)
+    // Portfolio before/after slider
     initializeSlider('.portfolio-slider', '.portfolio-prev-btn', '.portfolio-next-btn', 1); 
 });

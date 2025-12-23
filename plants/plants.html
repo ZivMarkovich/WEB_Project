@@ -2,36 +2,50 @@
 <html lang="he" dir="rtl">
 
 <head>
+  <!-- Basic page meta (encoding + responsive scaling) -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Page title shown in browser tab -->
   <title>צומחים יחד | צמחים</title>
 
+  <!-- Google Fonts (used across the site for consistent typography) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
     rel="stylesheet">
 
+  <!-- Global styles + page-specific styles -->
   <link rel="stylesheet" href="/global.css">
   <link rel="stylesheet" href="/plants/plants.css">
 </head>
 
 <body>
 
+  <!-- Header is injected by global.js (client-side include) -->
   <div id="header-placeholder"></div>
 
   <main>
-    <!-- HERO -->
+
+    <!-- =========================================================
+         HERO SECTION
+         Top banner image + overlay title text
+    ========================================================== -->
     <section class="hero-intro">
       <div class="banner-overlay">
-        <img src="images/pngtree-tulips-in-garden-on-blue-sky-background-wide-banner-with-copy-photo-image_2196485.jpg" alt="קטלוג צמחים">
+        <img src="images/pngtree-tulips-in-garden-on-blue-sky-background-wide-banner-with-copy-photo-image_2196485.jpg"
+          alt="קטלוג צמחים">
         <div class="overlay-text">
           <h1>הדרך לגינה טובה מתחילה כאן</h1>
         </div>
       </div>
     </section>
 
-    <!-- Intro -->
+    <!-- =========================================================
+         INTRO + SEARCH
+         Intro text + search input that filters the cards in the grid
+    ========================================================== -->
     <section class="plants-intro">
       <div class="content-wrapper">
         <h2>בחרו את הצמח שמתאים לכם</h2>
@@ -39,12 +53,18 @@
           כאן תוכלו למצוא מגוון צמחים לגינה ולמרפסת. מתחת לכל תמונה מופיע תיאור קצר כדי שתוכלו לבחור בקלות.
         </p>
 
-        <!-- Search -->
+        <!-- Search UI (used by plants.js) -->
         <div class="plants-search">
+
+          <!-- Screen-reader label (hidden visually by CSS) -->
           <label class="visually-hidden" for="plants-search-input">חיפוש צמח</label>
+
+          <!-- The JS listens to this input and hides/shows cards -->
           <input id="plants-search-input" type="text"
             placeholder="חפשו לפי שם או תיאור (לדוגמה: לבנדר, שמש, השקיה...)"
             autocomplete="off">
+
+          <!-- Results counter (updated by plants.js) -->
           <div class="plants-search-meta">
             <span id="plants-results-count"></span>
           </div>
@@ -52,11 +72,14 @@
       </div>
     </section>
 
-    <!-- Grid -->
+    <!-- =========================================================
+         CATALOG GRID
+         Each card contains: image + caption (h3 + p)
+    ========================================================== -->
     <section class="plants-section">
       <div class="plants-grid" id="plants-grid">
 
-        <!-- 1 -->
+        <!-- Plant Card #1 -->
         <article class="plant-card">
           <div class="plant-image">
             <img src="images/לבנדר.jpg" alt="לבנדר">
@@ -67,7 +90,7 @@
           </div>
         </article>
 
-        <!-- 2 -->
+        <!-- Plant Card #2 -->
         <article class="plant-card">
           <div class="plant-image">
             <img src="images/רוזמרין.webp" alt="רוזמרין">
@@ -78,7 +101,7 @@
           </div>
         </article>
 
-        <!-- 3 -->
+        <!-- Plant Card #3 -->
         <article class="plant-card">
           <div class="plant-image">
             <img src="images/גרניום.jpg" alt="גרניום">
@@ -89,7 +112,7 @@
           </div>
         </article>
 
-        <!-- 4 -->
+        <!-- Plant Card #4 -->
         <article class="plant-card">
           <div class="plant-image">
             <img src="images/בזיליקום.jpg" alt="בזיליקום">
@@ -100,7 +123,7 @@
           </div>
         </article>
 
-        <!-- 5 -->
+        <!-- Plant Card #5 -->
         <article class="plant-card">
           <div class="plant-image">
             <img src="images/אלוורה.jpg" alt="אלוורה">
@@ -111,7 +134,7 @@
           </div>
         </article>
 
-        <!-- 6 -->
+        <!-- Plant Card #6 -->
         <article class="plant-card">
           <div class="plant-image">
             <img src="images/קקטוס.jpg" alt="קקטוס">
@@ -122,7 +145,7 @@
           </div>
         </article>
 
-        <!-- 7 -->
+        <!-- Plant Card #7 -->
         <article class="plant-card">
           <div class="plant-image">
             <img src="images/פוטוס.jpg" alt="פוטוס">
@@ -133,7 +156,7 @@
           </div>
         </article>
 
-        <!-- 8 -->
+        <!-- Plant Card #8 -->
         <article class="plant-card">
           <div class="plant-image">
             <img src="images/סנסיווריה.jpg" alt="סנסיווריה">
@@ -144,7 +167,7 @@
           </div>
         </article>
 
-        <!-- 9 -->
+        <!-- Plant Card #9 -->
         <article class="plant-card">
           <div class="plant-image">
             <img src="images/פלרגוניום.webp" alt="פלרגוניום">
@@ -155,7 +178,7 @@
           </div>
         </article>
 
-        <!-- 10 -->
+        <!-- Plant Card #10 -->
         <article class="plant-card">
           <div class="plant-image">
             <img src="images/מרווה.webp" alt="מרווה">
@@ -166,7 +189,7 @@
           </div>
         </article>
 
-        <!-- 11 -->
+        <!-- Plant Card #11 -->
         <article class="plant-card">
           <div class="plant-image">
             <img src="images/נענע.jpg" alt="נענע">
@@ -177,7 +200,7 @@
           </div>
         </article>
 
-        <!-- 12 -->
+        <!-- Plant Card #12 -->
         <article class="plant-card">
           <div class="plant-image">
             <img src="images/טימין.jpg" alt="טימין">
@@ -188,7 +211,7 @@
           </div>
         </article>
 
-        <!-- 13 -->
+        <!-- Plant Card #13 -->
         <article class="plant-card">
           <div class="plant-image">
             <img src="images/לנטנה.jpg" alt="לנטנה">
@@ -199,7 +222,7 @@
           </div>
         </article>
 
-        <!-- 14 -->
+        <!-- Plant Card #14 -->
         <article class="plant-card">
           <div class="plant-image">
             <img src="images/פטוניה.webp" alt="פטוניה">
@@ -210,7 +233,7 @@
           </div>
         </article>
 
-        <!-- 15 -->
+        <!-- Plant Card #15 -->
         <article class="plant-card">
           <div class="plant-image">
             <img src="images/יסמין.webp" alt="יסמין">
@@ -221,18 +244,18 @@
           </div>
         </article>
 
-        <!-- 16 -->
+        <!-- Plant Card #16 -->
         <article class="plant-card">
           <div class="plant-image">
             <img src="images/בוגנווילה.webp" alt="בוגנוויליה">
           </div>
           <div class="plant-caption">
-            <h3>בוגנוויליה</h3>
+            <h3>בוגנווליה</h3>
             <p>מטפס חזק עם צבעים בולטים. אוהב שמש מלאה.</p>
           </div>
         </article>
 
-        <!-- 17 -->
+        <!-- Plant Card #17 -->
         <article class="plant-card">
           <div class="plant-image">
             <img src="images/ורדים.jpg" alt="ורדים">
@@ -243,7 +266,7 @@
           </div>
         </article>
 
-        <!-- 18 -->
+        <!-- Plant Card #18 -->
         <article class="plant-card">
           <div class="plant-image">
             <img src="images/גרברה.jpg" alt="גרברה">
@@ -254,7 +277,7 @@
           </div>
         </article>
 
-        <!-- 19 -->
+        <!-- Plant Card #19 -->
         <article class="plant-card">
           <div class="plant-image">
             <img src="images/ביגוניה.jpg" alt="ביגוניה">
@@ -265,7 +288,7 @@
           </div>
         </article>
 
-        <!-- 20 -->
+        <!-- Plant Card #20 -->
         <article class="plant-card">
           <div class="plant-image">
             <img src="images/הדס.webp" alt="הדס">
@@ -278,15 +301,54 @@
 
       </div>
 
+      <!-- Message shown only when search returns 0 matches (controlled by JS) -->
       <p class="no-results" id="plants-no-results" hidden>
         לא נמצאו תוצאות. נסו מילה אחרת 🙂
       </p>
     </section>
   </main>
 
+  <!-- Footer is injected by global.js (client-side include) -->
   <div id="footer-placeholder"></div>
 
+  <!-- =========================================================
+       STOCK MODAL
+       Shared modal used for "Check Stock" buttons on each card
+  ========================================================== -->
+  <div class="stock-modal-backdrop" id="stock-modal" hidden>
+    <div class="stock-modal" role="dialog" aria-modal="true" aria-label="בדיקת זמינות">
+      <h3>בדיקת זמינות</h3>
+
+      <!-- Product name is injected here by JS when opening the modal -->
+      <p class="modal-subtitle" id="stock-modal-subtitle"></p>
+
+      <!-- Form uses JS validation (novalidate disables browser default messages) -->
+      <form id="stock-modal-form" novalidate>
+        <label>
+          כמות:
+          <input id="stock-modal-qty" type="number" inputmode="numeric" min="1" step="1" required
+            placeholder="לדוגמה: 3" />
+        </label>
+
+        <!-- Error text appears here (aria-live for screen readers) -->
+        <div class="stock-error" id="stock-modal-error" aria-live="polite"></div>
+
+        <!-- Action buttons: submit + close -->
+        <div class="modal-actions">
+          <button type="submit" class="check-stock-btn">בדוק זמינות</button>
+          <button type="button" class="close-modal-btn" id="stock-modal-close">סגור</button>
+        </div>
+
+        <!-- Result text appears here after "check stock" -->
+        <div class="stock-result" id="stock-modal-result" aria-live="polite"></div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Global JS loads header/footer + sets active nav link -->
   <script src="/global.js"></script>
+
+  <!-- Page JS: search filter + stock modal logic -->
   <script src="/plants/plants.js"></script>
 </body>
 
