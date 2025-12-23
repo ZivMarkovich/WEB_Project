@@ -49,7 +49,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         prevBtn.addEventListener('click', () => {
-            // ב-RTL גלילה ימינה היא בערך חיובי
             slider.scrollBy({ left: scrollAmount, behavior: 'smooth' });
         });
     };
