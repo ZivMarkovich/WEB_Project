@@ -6,6 +6,7 @@
     --main-font: "Open Sans", sans-serif;
 }
 
+
 /* איפוס בסיסי */
 * {
     box-sizing: border-box;
@@ -13,37 +14,44 @@
     padding: 0;
 }
 
+
 h1 {
-    font-size: 50px !important; 
-    color: white !important; 
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6) !important;
-    margin: 0 !important;
+    font-size: 50px;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    margin: 0;
 }
 
+
 h2 {
-    text-align: center !important;
-    margin-bottom: 25px !important;
-    font-size: 35px !important;
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 35px;
     color: var(--olive-green);
 }
+
 
 h3 {
     color: var(--olive-green);
 }
 
 
+
+
 body {
     font-family: var(--main-font);
     color: #333;
     line-height: 1.6;
-    text-align: right; 
+    text-align: right;
     min-height: 100vh;
     background-color: whitesmoke;
 }
 
+
 main {
     width: 100%;
 }
+
 
 a {
     text-decoration: none;
@@ -56,58 +64,91 @@ a {
 }
 
 
+
+
 a:hover {
     color: var(--dark-brown);
 }
 
+
 ul {
     list-style: none;
 }
+
 
 img {
     max-width: 100%;
     height: auto;
 }
 
+
 /* --- עיצוב HEADER --- */
-.main-header {
-    display: flex;
-    justify-content: space-between; 
-    align-items: center; 
-    padding: 15px 30px;
-    background-color: var(--olive-green); 
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); 
-    width: 100%;
+/* --- עיצוב HEADER סופי --- */
+#header-placeholder {
+    min-height: 148px; /* גובה לדסקטופ (תבדוק שזה עדיין המספר המדויק) */
+    display: block;
     }
 
-.logo a img {
-    height: 110px; 
-    width: 110px;
-    border-radius: 50%; 
-    margin-right: 200px;
+
+
+
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--olive-green);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    width: 100%;
+   
+    /* מרווח ביטחון בין האלמנטים */
+    gap: 20px;
+
+
+    /* --- הנוסחה למרכוז במחשב --- */
+    /* הסבר: קח חצי מהמסך, תחסיר 650 פיקסל (חצי מ-1300), וזה הריפוד בצדדים */
+    /* הפונקציה max מוודאת שבמסכים קטנים הריפוד לא יהיה שלילי אלא מינימום 30 פיקסל */
+    padding: 15px max(30px, calc(50% - 600px));
 }
+
+
+.logo a img {
+    height: 110px;
+    width: 110px;
+    border-radius: 50%;
+    /* מחקנו את margin-right: 200px - זה מה שגרם לבעיה! */
+    margin-right: 0;
+    /* כדי שהתמונה לא תתכווץ כשאין מקום */
+    flex-shrink: 0;
+}
+
+
 
 
 /* --- ניווט ראשי (Main Navigation) --- */
 .main-nav > ul {
     display: flex;
     justify-content: center;
-    gap: 50px; 
+    gap: 50px;
 }
 
-.main-nav{
+
+.main-nav {
     flex-grow: 1;
     text-align: center;
+    /* מוודא שהתפריט לא נדחף החוצה */
+    min-width: 0;
 }
+
 
 .main-nav a {
     font-weight: bold;
     font-size: 1.25rem;
     padding: 8px 20px;
     border-radius: 8px;
-    color: white; 
+    color: white;
     transition: all 0.3s ease;
 }
+
 
 .main-nav a:hover {
     background-color: whitesmoke;
@@ -116,19 +157,21 @@ img {
 /* --- עיצוב כפתור פעיל (הדף הנוכחי) --- */
 .main-nav a.active {
     color: black; /* צבע טקסט */
-      
+     
 }
+
 
 /* --- Dropdown (קטלוג) --- */
 .dropdown {
     position: relative;
     }
 
+
 .dropdown-menu {
-    
-    display: none; 
+   
+    display: none;
     position: absolute;
-    top: 30px; 
+    top: 30px;
     background-color: white;
     border: 1px solid var(--olive-green);
     min-width: 160px;
@@ -137,23 +180,28 @@ img {
     right: -30px;
     z-index: 999;
 
+
 }
+
+
 
 
 .dropdown:hover .dropdown-menu {
-    display: block; 
+    display: block;
 }
+
 
 .dropdown-menu li a {
     font-size: 1rem;
     display: block;
     padding: 10px 15px;
     white-space: nowrap;
-    background-color: transparent; 
+    background-color: transparent;
     color: var(--olive-green);
     border: none;
     border-radius: 0;
 }
+
 
 .dropdown-menu li a:hover {
     background-color: whitesmoke;
@@ -163,35 +211,41 @@ img {
     border-bottom: 1px solid var(--olive-green);
 }
 
+
 .dropdown-menu li:last-child {
     border-bottom: none;
 }
 
+
 /* אייקוני רשתות חברתיות */
 .social-icons {
     display: flex;
-    gap: 20px;
-    margin-left: 200px;
-    
-    
+    gap: 15px; /* הקטנו קצת את הרווח הפנימי */
+    /* מחקנו את margin-left: 200px - זה מה שגרם לבעיה! */
+    margin-left: 0;
+    flex-shrink: 0; /* מונע מהאייקונים להתכווץ */
 }
 
+
 .social-icons img {
-    height: 45px; 
+    height: 45px;
     width: 45px;
     border-radius: 50%;
     opacity: 0.8;
     transition: opacity 0.3s;
+    object-fit: cover;
 }
+
 
 .social-icons img:hover {
     opacity: 1;
 }
 
+
 /* --- עיצוב FOOTER --- */
 .main-footer {
-    background-color: var(--dark-brown); 
-    color: white; 
+    background-color: var(--dark-brown);
+    color: white;
     padding: 30px 20px;
     text-align: center;
     font-size: 1rem;
@@ -200,13 +254,16 @@ img {
 }
 
 
+
+
 .footer-social {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
     gap: 30px; /* דרישה 6: מרווחים גדולים יותר */
     margin-bottom: 15px;
 }
+
 
 .footer-social a {
     color: white;
@@ -214,19 +271,23 @@ img {
     font-size: 1.1rem;
 }
 
+
 .footer-social a:hover {
-    color: black; 
+    color: black;
 }
+
 
 html, body {
     /* הכלל החשוב: מונע תוכן מלחרוג מרוחב המכשיר */
-    overflow-x: hidden; 
-    
+    overflow-x: hidden;
+   
     /* מוודא שאלמנט הבסיס תופס 100% מהרוחב הזמין */
     width: 100%;
     margin: 0;
-    padding: 0; 
+    padding: 0;
 }
+
+
 
 
 /* --- רספונסיביות --- */
@@ -235,26 +296,26 @@ html, body {
 /* ------------------------------------- */
 @media (min-width: 901px) and (max-width: 1200px) {
    
-    /* הכללים האלה חלים רק ברוחב הזה */
-    .logo a img {
-        margin-right: 50px; /* צמצום מ-200px ל-50px */
-    }
-
-
+   /* נקטין קצת את הרווחים בתוך התפריט עצמו כדי שהכל ייכנס */
     .main-nav > ul {
-        gap: 30px;
+        gap: 20px; /* במקום 50px שיש ברגיל */
     }
-
-
-    .social-icons {
-        margin-left: 50px;
+   
+    .logo a img {
+        height: 90px; /* הקטנה קלה של הלוגו */
+        width: 90px;
     }
 }
+
 
 /* ------------------------------------- */
 /* 2. טאבלט: בין 601px ל- 900px */
 /* ------------------------------------- */
 @media (min-width: 601px) and (max-width: 900px) {
+   
+    #header-placeholder {
+        min-height: 242px; /* הערכה לגובה החדש אחרי שעשינו שורה. מומלץ לבדוק ב"inspect" */
+    }
    
     /* הכללים האלה חלים רק ברוחב הזה - הפריסה האנכית */
     .main-header {
@@ -262,6 +323,8 @@ html, body {
         gap: 15px;
         padding: 15px 10px;
     }
+
+
 
 
     /* ביטול מרווחי ה-200px והקטנת לוגו */
@@ -274,9 +337,11 @@ html, body {
    
     /* מעבר ל-column וצמצום רווחים בתפריט */
     .main-nav > ul {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
+        flex-direction: row; /* מחזירים לשורה! */
+        flex-wrap: wrap;     /* מילת הקסם: אם אין מקום, רד שורה */
+        justify-content: center; /* מירכוז הקישורים */
+        gap: 20px; /* רווח סביר בין הקישורים */
+        padding: 0;
     }
    
     /* ... וכל שאר הכללים שהגדרת ל-900px ... */
@@ -291,43 +356,121 @@ html, body {
 
 
 
+
+
+
+
 /* ------------------------------------- */
 /* 3. מובייל: עד 600px */
 /* ------------------------------------- */
 @media (max-width: 600px) {
-    /* הכללים האלה חלים רק על מובייל צר */
-   
-    /* מכריח את כללי ה-900px לרוץ קודם */
-    /* ***חשוב: נשתמש בכללים מ-900px ונשנה רק את מה שצריך *** */
+    /* --- הגדרות בסיס להאדר במובייל --- */
+    #header-placeholder {
+        min-height: 148px; /* הערכה לגובה החדש הקומפקטי. מומלץ לבדוק ב"inspect" */
+    }
 
 
     .main-header {
-        flex-direction: column; /* שומרים על ערימה אנכית */
-        gap: 10px;
+        flex-direction: column;
+        gap: 5px;
+        padding: 5px 2px;
+        /* חשוב מאוד: מוודא שהתפריט הנפתח יצוף מעל שאר האתר ולא מתחתיו */
+        position: relative;
+        z-index: 1000;
     }
 
 
     .logo a img {
-        height: 60px; /* הקטנה נוספת */
-        width: 60px;
-        margin-right: 0;
+        height: 50px; /* לוגו קומפקטי */
+        width: 50px;
+        margin: 0 auto;
+        display: block;
     }
    
-    .main-nav a {
-        font-size: 0.9rem; /* הקטנת הגופן */
-        padding: 5px 10px;
+    /* --- כפיית שורה אחת (Row) --- */
+    .main-nav > ul {
+        display: flex;
+        flex-direction: row; /* שורה */
+        flex-wrap: nowrap;   /* אסור לרדת שורה! */
+        justify-content: center; /* ממורכז */
+        align-items: center;
+        gap: 2px; /* רווח מינימלי בין מילים */
+        width: 100%;
+        margin: 5px 0 0 0;
+        padding: 0;
     }
+
+
+    .main-nav a {
+        font-size: 0.8rem; /* פונט מוקטן כדי שהכל ייכנס */
+        padding: 8px 6px;  /* ריפוד קטן */
+        white-space: nowrap; /* מונע שבירת מילים */
+    }
+
+
+    /* --- טיפול בקטלוג (Dropdown) --- */
+    /* אנחנו משאירים אותו Absolute כדי שיצוף ולא ידחוף תוכן */
+    .dropdown {
+        position: relative;
+    }
+
+
+
+
+    .dropdown-menu {
+        display: none; /* מוסתר כברירת מחדל */
+        position: absolute; /* צף */
+       
+        /* מיקום: */
+        top: 110%; /* מתחיל בדיוק איפה שהמילה קטלוג נגמרת למטה */
+        left: 50%; /* הולך לאמצע הרוחב של המילה קטלוג */
+        transform: translateX(-50%); /* זז שמאלה חצי מהרוחב של עצמו כדי להתמרכז */
+        right: auto; /* ביטול השפעות RTL אם יש */
+       
+        /* עיצוב התפריט שנפתח */
+        width: max-content; /* הרוחב יהיה לפי הטקסט הכי ארוך בפנים */
+        min-width: 120px;
+        background-color: white;
+        border: 1px solid var(--olive-green);
+        border-radius: 4px; /* פינות עגולות קטנות */
+        padding: 5px 0;
+        z-index: 9999;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+
+    /* תיקון קריטי ללחיצה - מוודא שהכפתור לחיץ */
+    .dropdown > a {
+        pointer-events: auto;
+    }
+
+
+    .dropdown-menu li a {
+        display: block;
+        padding: 8px 15px;
+        text-align: center;
+        color: var(--olive-green);
+        white-space: nowrap;
+    }
+
+
+    /*  הקלאס שה-JS מוסיף כדי להציג את התפריט */
+    .dropdown.menu-open .dropdown-menu {
+    display: block;
+}
    
     .social-icons {
-        display: none; /* מסתירים את הסושיאל במובייל צר */
-        margin-left: 0;
+        display: none;
     }
 
 
     .main-footer {
         padding: 20px 10px;
     }
-   
-    /* ... וכל שאר הכללים הספציפיים ל-600px ... */
 }
+
+
+
+
+
 

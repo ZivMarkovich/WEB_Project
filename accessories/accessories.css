@@ -1,7 +1,9 @@
 /* ################################################################### */
-/* ACCESSORIES PAGE */
+/* ACCESSORIES PAGE - Catalog (matched to PLANTS) */
 /* ################################################################### */
 
+/* --- HERO SECTION --- */
+/* Top banner container + image cropping */
 .hero-intro {
   padding: 40px 50px 0;
   background-color: transparent;
@@ -13,31 +15,30 @@
   height: 400px;
   overflow: hidden;
   border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .banner-overlay img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover; /* keeps image proportions while filling the hero */
+  display: block;
 }
 
+/* Hero text overlay with a dark tint for readability */
 .overlay-text {
   position: absolute;
   inset: 0;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: rgba(0,0,0,0.2);
+  text-align: center;
+  background: rgba(0, 0, 0, 0.2);
 }
 
-.overlay-text h1 {
-  font-size: 50px;
-  color: #fff;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
-}
-
-/* Intro */
+/* --- INTRO SECTION --- */
+/* Intro text area + divider line */
 .accessories-intro {
   padding: 40px 10%;
   text-align: center;
@@ -46,23 +47,20 @@
   margin: 0 auto;
 }
 
-.accessories-intro h2 {
-  font-size: 35px;
-  margin-bottom: 20px;
-}
-
+/* Paragraph width limit for better readability */
 .accessories-intro p {
   max-width: 800px;
-  margin: 0 auto;
+  margin: 0 auto 0;
   font-size: 1.1em;
-  color: #333;
   line-height: 1.8;
 }
 
-/* Search */
+/* --- SEARCH AREA --- */
+/* Search input + live results counter */
 .accessories-search {
   margin: 24px auto 0;
   max-width: 700px;
+  text-align: center;
 }
 
 .accessories-search input {
@@ -71,71 +69,261 @@
   border: 2px solid #ddd;
   border-radius: 25px;
   font-size: 1em;
-}
-
-.accessories-search input:focus {
-  border-color: var(--color-accent);
   outline: none;
+  transition: border-color 0.25s, box-shadow 0.25s;
+  font-family: inherit;
 }
 
-/* Grid */
+/* Focus style matches PLANTS: olive border + subtle ring */
+.accessories-search input:focus {
+  border-color: var(--olive-green);
+  box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.06);
+}
+
+/* "Showing X out of Y" text */
+.accessories-search-meta {
+  margin-top: 10px;
+  color: #555;
+  font-size: 0.95em;
+}
+
+/* --- GRID LAYOUT --- */
+/* Main catalog area */
 .accessories-section {
   padding: 60px 5%;
   max-width: 1200px;
   margin: 0 auto;
 }
 
+/* 4 columns on desktop (shrinks in media queries) */
 .accessories-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 24px;
 }
 
-/* Card */
+/* --- CARD DESIGN --- */
+/* Card container (flex column to push button to bottom) */
 .accessory-card {
   background: #fff;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-  transition: transform .3s, box-shadow .3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s, box-shadow 0.3s;
+
+  /* same behavior as PLANTS */
+  display: flex;
+  flex-direction: column;
 }
 
 .accessory-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
 
+/* Image crop height matches PLANTS */
 .accessory-image img {
   width: 100%;
   height: 190px;
   object-fit: cover;
+  display: block;
 }
 
+/* Caption area + top border accent */
 .accessory-caption {
-  border-top: 3px solid var(--color-accent);
-  padding: 14px;
+  border-top: 3px solid var(--olive-green);
+  background: #fff;
+  padding: 14px 14px 16px;
   text-align: right;
+
+  /* so the button stays at the bottom */
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .accessory-caption h3 {
-  margin-bottom: 8px;
-  color: var(--color-primary);
+  margin: 0 0 8px;
+  font-size: 1.15em;
+  color: var(--olive-green);
 }
 
 .accessory-caption p {
-  font-size: .95em;
+  margin: 0;
+  font-size: 0.95em;
   color: #555;
+  line-height: 1.6;
+}
+
+/* --- EMPTY STATE --- */
+/* Shown only when no items match the search */
+.no-results {
+  margin-top: 26px;
+  text-align: center;
+  color: #555;
+  font-size: 1.05em;
+}
+
+/* --- ACCESSIBILITY HELPERS --- */
+/* Hides labels visually but keeps them readable for screen readers */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* --- STOCK CHECK BUTTON --- */
+/* Added via JS to each card caption */
+.stock-toggle-btn {
+  width: 100%;
+  margin-top: 12px;
+  padding: 10px 12px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: var(--olive-green);
+  color: #fff;
+  font-weight: 700;
+  transition: transform 0.15s ease, opacity 0.2s ease;
+  font-family: inherit;
+}
+
+.stock-toggle-btn:hover {
+  transform: translateY(-1px);
+  opacity: 0.95;
+}
+
+/* Push button down so all cards look aligned */
+.accessory-caption .stock-toggle-btn {
+  margin-top: auto;
 }
 
 /* ################################################################### */
-/* Responsive */
+/* Stock Modal (Availability) */
 /* ################################################################### */
 
-/* ------------------------------------- */
-/* 1. דסקטופ קטן: בין 901px ל- 1200px */
-/* ------------------------------------- */
-@media (min-width: 901px) and (max-width: 1200px) {
+/* Full-screen backdrop */
+.stock-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  z-index: 9999;
+}
 
+/* Modal box */
+.stock-modal {
+  width: min(720px, 95vw);
+  background: #fff;
+  border-radius: 14px;
+  padding: 28px 30px;
+  box-shadow: 0 16px 50px rgba(0, 0, 0, 0.25);
+}
+
+.stock-modal h3 {
+  margin: 0 0 6px;
+  font-size: 28px;
+  color: #222;
+}
+
+.modal-subtitle {
+  margin: 0 0 18px;
+  color: #666;
+  font-size: 16px;
+}
+
+/* Form layout */
+#stock-modal-form label {
+  display: block;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/* Quantity input */
+#stock-modal-qty {
+  width: 100%;
+  margin-top: 10px;
+  padding: 14px 16px;
+  border: 2px solid #ddd;
+  border-radius: 12px;
+  font-size: 16px;
+  outline: none;
+  font-family: inherit;
+  text-align: right;
+}
+
+#stock-modal-qty:focus {
+  border-color: var(--olive-green);
+  box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.06);
+}
+
+/* Validation error text */
+.stock-error {
+  min-height: 18px;
+  margin: 10px 0 0;
+  color: #b00020;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* Action buttons row */
+.modal-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 22px;
+}
+
+.modal-actions button {
+  border: none;
+  border-radius: 12px;
+  padding: 12px 18px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 0.15s ease, opacity 0.2s ease;
+  font-family: inherit;
+  min-width: 160px;
+}
+
+.modal-actions button:hover {
+  transform: translateY(-1px);
+  opacity: 0.95;
+}
+
+/* Primary / secondary buttons */
+.check-stock-btn {
+  background: var(--olive-green);
+  color: #fff;
+}
+
+.close-modal-btn {
+  background: #e9e9e9;
+  color: #333;
+}
+
+/* Result message (success/fail) */
+.stock-result {
+  margin-top: 14px;
+  font-weight: 700;
+  color: #2e7d32;
+  min-height: 18px;
+}
+
+/* ################################################################### */
+/* RESPONSIVENESS */
+/* ################################################################### */
+
+/* 1) Small desktops (901px - 1200px) */
+@media (min-width: 901px) and (max-width: 1200px) {
   .accessories-intro {
     padding: 40px 6%;
   }
@@ -148,17 +336,10 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 22px;
   }
-
-  .overlay-text h1 {
-    font-size: 44px;
-  }
 }
 
-/* ------------------------------------- */
-/* 2. טאבלט: בין 601px ל- 900px */
-/* ------------------------------------- */
+/* 2) Tablets (601px - 900px) */
 @media (min-width: 601px) and (max-width: 900px) {
-
   .hero-intro {
     padding: 30px 20px 0;
   }
@@ -167,16 +348,8 @@
     height: 320px;
   }
 
-  .overlay-text h1 {
-    font-size: 36px;
-  }
-
   .accessories-intro {
     padding: 34px 6%;
-  }
-
-  .accessories-intro h2 {
-    font-size: 30px;
   }
 
   .accessories-grid {
@@ -189,11 +362,8 @@
   }
 }
 
-/* ------------------------------------- */
-/* 3. מובייל: עד 600px */
-/* ------------------------------------- */
+/* 3) Mobile (max 600px) */
 @media (max-width: 600px) {
-
   .hero-intro {
     padding: 25px 16px 0;
   }
@@ -202,17 +372,8 @@
     height: 250px;
   }
 
-  .overlay-text h1 {
-    font-size: 28px;
-    padding: 0 10px;
-  }
-
   .accessories-intro {
     padding: 30px 6%;
-  }
-
-  .accessories-intro h2 {
-    font-size: 26px;
   }
 
   .accessories-grid {
@@ -223,5 +384,23 @@
   .accessory-image img {
     height: 210px;
   }
+
+  /* Modal adjustments for small screens */
+  .stock-modal {
+    padding: 20px;
+  }
+
+  .modal-actions {
+    flex-direction: column;
+  }
+
+  .modal-actions button {
+    width: 100%;
+    min-width: unset;
+  }
 }
 
+/* --- SEARCH HIDING RULES --- */
+/* Ensures hidden cards never occupy space when filtering */
+.accessory-card[hidden] { display: none; }
+#stock-modal[hidden] { display: none; }
