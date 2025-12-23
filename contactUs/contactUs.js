@@ -1,42 +1,39 @@
-// מוודא שהקוד ירוץ רק אחרי שה-DOM נטען
 document.addEventListener("DOMContentLoaded", () => {
 
-
-    // אלמנטים עיקריים מהטופס
     const form = document.querySelector(".contact-form");
     const descriptionInput = document.getElementById("description");
     const counterEl = document.getElementById("desc-counter");
     const fileInput = document.getElementById("upload-image");
     const imagePreview = document.getElementById("image-preview");
-    const successBox = document.getElementById("form-success-message"); // הודעת הצלחה קיימת ב-HTML (כרגע מוסתרת)
+    const successBox = document.getElementById("form-success-message");
     const phoneInput = document.getElementById("phone");
     const MAX_DESC_LENGTH = 500;
 
 
-    // פונקציה שמעדכנת את מונה התווים בתיאור
+    // Updates the live character counter for the description textarea
     function updateCounter() {
         const length = descriptionInput.value.length;
         counterEl.textContent = `${length}/${MAX_DESC_LENGTH} תווים`;
     }
 
 
-    // עדכון המונה בכל הקלדה + אתחול בעת טעינה
+    // Update counter on each input + initial render
     descriptionInput.addEventListener("input", updateCounter);
     updateCounter();
 
 
-    // מניעת הקלדת תווים לא מספריים בשדה הטלפון (משאיר רק ספרות)
+    // Force numeric-only input in phone field (extra safety beyond HTML pattern)
     phoneInput.addEventListener("input", () => {
         phoneInput.value = phoneInput.value.replace(/\D/g, "");
     });
 
 
-    // תצוגה מקדימה של התמונה שנבחרה בשדה הקובץ
+    // Image preview handling for uploaded file
     fileInput.addEventListener("change", () => {
         const file = fileInput.files[0];
 
 
-        // אם לא נבחר קובץ – מסתירים את התצוגה המקדימה
+        // Reset preview if no file selected
         if (!file) {
             imagePreview.style.display = "none";
             imagePreview.src = "";
@@ -44,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
 
-        // בדיקה שהקובץ הוא מסוג תמונה
+        // Guard against non-image files
         if (!file.type.startsWith("image/")) {
             alert("ניתן להעלות קובצי תמונה בלבד");
             fileInput.value = "";
@@ -54,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
 
-        // קריאת הקובץ והצגה שלו כ-preview
+        // Read image as Data URL for client-side preview
         const reader = new FileReader();
         reader.onload = (e) => {
             imagePreview.src = e.target.result;
@@ -64,40 +61,36 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
-    // טיפול באירוע שליחת הטופס
+    // Submit handling
     form.addEventListener("submit", (e) => {
         e.preventDefault();
 
 
-        // שימוש בולידציה המובנית של הדפדפן (required, type, pattern)
+        // Leverage native browser validation rules
         if (!form.checkValidity()) {
             form.reportValidity();
             return;
         }
 
-
-        // בחירת כפתור השליחה
         const submitBtn = form.querySelector(".cta-button");
 
-
-        // שינוי טקסט הכפתור להודעת הצלחה
         submitBtn.textContent = "הפנייה נשלחה בהצלחה! נחזור אליכם בהקדם 🌿";
 
 
-        // כיבוי הכפתור כדי למנוע שליחה חוזרת
+        // Lock button to prevent double submission
         submitBtn.disabled = true;
         submitBtn.style.backgroundColor = "var(--olive-green)";
         submitBtn.style.cursor = "default";
 
 
-        // איפוס הטופס אחרי שליחה
+        // Reset form state after successful submission
         form.reset();
         imagePreview.src = "";
         imagePreview.style.display = "none";
         updateCounter();
 
 
-        // ליתר ביטחון – דואגים שהקופסת הצלחה ב-HTML תישאר מוסתרת
+        // Ensure any static success box remains hidden (defensive)
         if (successBox) {
             successBox.style.display = "none";
         }

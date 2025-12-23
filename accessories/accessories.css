@@ -322,6 +322,26 @@
 /* RESPONSIVENESS */
 /* ################################################################### */
 
+/* 1) Small Laptops & Large Tablets (901px - 1200px) */
+@media (min-width: 901px) and (max-width: 1200px) {
+  .overlay-text h1 { 
+    font-size: 2.2rem; 
+  }
+
+  .accessories-intro {
+    padding: 34px 10%;
+  }
+
+  .accessories-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .accessory-image img {
+    height: 220px;
+  }
+}
+
 /* 1) Small desktops (901px - 1200px) */
 @media (min-width: 901px) and (max-width: 1200px) {
   .accessories-intro {
@@ -338,6 +358,11 @@
   }
 }
 
+/* --- SEARCH HIDING RULES --- */
+/* Ensures hidden cards never occupy space when filtering */
+.accessory-card[hidden] { display: none; }
+#stock-modal[hidden] { display: none; }
+
 /* 2) Tablets (601px - 900px) */
 @media (min-width: 601px) and (max-width: 900px) {
   .hero-intro {
@@ -345,7 +370,7 @@
   }
 
   .banner-overlay {
-    height: 320px;
+    height: 300px;
   }
 
   .accessories-intro {
@@ -365,11 +390,17 @@
 /* 3) Mobile (max 600px) */
 @media (max-width: 600px) {
   .hero-intro {
-    padding: 25px 16px 0;
+    padding: 15px 10px 0;
   }
 
   .banner-overlay {
-    height: 250px;
+    height: 200px;
+  }
+
+  .overlay-text h1 {
+    font-size: 1.5rem; 
+    padding: 0 15px; 
+    text-align: center;
   }
 
   .accessories-intro {
@@ -400,7 +431,4 @@
   }
 }
 
-/* --- SEARCH HIDING RULES --- */
-/* Ensures hidden cards never occupy space when filtering */
-.accessory-card[hidden] { display: none; }
-#stock-modal[hidden] { display: none; }
+

@@ -308,13 +308,17 @@
 }
 
 /* ################################################################### */
-/* RESPONSIVENESS */
+/* RESPONSIVENESS - GARDEN TOOLS (Matched to Services Hero) */
 /* ################################################################### */
 
-/* 1) Small desktops (901px - 1200px) */
+/* 1) Small Laptops & Large Tablets (901px - 1200px) */
 @media (min-width: 901px) and (max-width: 1200px) {
+  .overlay-text h1 { 
+    font-size: 2.2rem; 
+  }
+
   .gardenTools-intro {
-    padding: 40px 6%;
+    padding: 34px 10%;
   }
 
   .gardenTools-section {
@@ -327,14 +331,20 @@
   }
 }
 
+/* --- SEARCH HIDING RULES --- */
+/* Ensures hidden cards never occupy space when filtering */
+.gardenTool-card[hidden] { display: none; }
+#stock-modal[hidden] { display: none; }
+
 /* 2) Tablets (601px - 900px) */
 @media (min-width: 601px) and (max-width: 900px) {
+  /* Hero matching Services page */
   .hero-intro {
     padding: 30px 20px 0;
   }
 
   .banner-overlay {
-    height: 320px;
+    height: 300px;
   }
 
   .gardenTools-intro {
@@ -353,12 +363,19 @@
 
 /* 3) Mobile (max 600px) */
 @media (max-width: 600px) {
+  /* Hero matching Services page */
   .hero-intro {
-    padding: 25px 16px 0;
+    padding: 15px 10px 0;
   }
 
   .banner-overlay {
-    height: 250px;
+    height: 200px;
+  }
+
+  .overlay-text h1 {
+    font-size: 1.5rem; 
+    padding: 0 15px; 
+    text-align: center;
   }
 
   .gardenTools-intro {
@@ -374,6 +391,7 @@
     height: 210px;
   }
 
+  /* Modal adjustments for small screens */
   .stock-modal {
     padding: 20px;
   }
@@ -387,8 +405,3 @@
     min-width: unset;
   }
 }
-
-/* --- VISIBILITY RULES --- */
-/* Ensures filtered cards truly disappear, and hidden modal does not show */
-.gardenTool-card[hidden] { display: none; }
-#stock-modal[hidden] { display: none; }
