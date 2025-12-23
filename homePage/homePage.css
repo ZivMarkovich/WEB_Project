@@ -26,8 +26,8 @@ p {
     height: 400px; 
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    margin: 20px auto 40px auto; 
-    max-width: 90%;
+    margin: 0 auto 40px auto; 
+    max-width: 94%;
 }
 
 /* Background image */
@@ -350,22 +350,29 @@ p {
 
 /* 1. Large tablets / small desktops (901px–1200px) */
 @media (min-width: 901px) and (max-width: 1200px) {
-    /* Slightly narrower sections for better readability */
-    section {
-        max-width: 1000px; 
+    
+    .hero-content h1 { 
+        font-size: 2.2rem;
     }
+
+    .hero-section {
+    max-width: 90%;
+}
 }
 
 
 /* 2. Tablets (601px–900px) */
 @media (min-width: 601px) and (max-width: 900px) {
     
-    /* HERO SECTION */
     .hero-section {
-        height: 350px; 
+        height: 300px;
+        margin-top: 20px; 
+    }
+
+    .hero-content h1 {
+        font-size: 3rem;
     }
     
-    /* TRUST SECTION*/
     .trust-section {
         padding: 40px 5%;
     }
@@ -373,7 +380,6 @@ p {
         font-size: 1.1rem;
     }
     
-    /* PORTFOLIO SLIDER */
     .portfolio-slider-wrapper {
         max-width: 800px;
         padding: 0 40px; 
@@ -412,20 +418,22 @@ p {
     
     /* HERO SECTION */
     .hero-section {
-        height: 300px;
+        height: 200px;
         max-width: 95%;
-        margin-top: 10px;
+        margin: 10px auto;
+        border-radius: 8px;
     }
     .hero-content h1 {
-        font-size: 8vw;
-        white-space: normal;
+        font-size: 1.5rem;
+        padding: 0 15px;
+        line-height: 1.2;
     }
     
     /* PRIMARY CTA */
     .primary-cta {
-        margin-top: 20px; 
-        font-size: 1rem;
-        padding: 10px 20px;
+        margin-top: 15px; 
+        font-size: 0.9rem;
+        padding: 8px 18px;
     }
     
     /* TRUST SECTION */
