@@ -1,93 +1,92 @@
-/**
- * global.js
- * מטפל בטעינה של רכיבי ההאדר והפוטר הגלובליים (Client-Side Includes).
+/*
+ * Handles dynamic loading of Header/Footer and navigation logic.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-    // נתיבים לקבצי ה-HTML של הקומפוננטות
-    // הנחה: הקבצים נמצאים בתיקיית components/ בשורש האתר
     const HEADER_PATH = '/header.html'; 
     const FOOTER_PATH = '/footer.html';
-    
-    // מזהה את המיקום הנוכחי של הדף כדי להדליק את הקישור הפעיל בתפריט
     const currentPath = window.location.pathname.toLowerCase();
 
-    // פונקציה לשליפת והזרקת קוד HTML
+    // Dynamically loads HTML components
     async function loadComponent(placeholderId, filePath) {
         const placeholder = document.getElementById(placeholderId);
         if (placeholder) {
             try {
-                // שליפת התוכן
                 const response = await fetch(filePath);
-                
-                if (!response.ok) {
-                    throw new Error(`Failed to load ${filePath}. Status: ${response.status}`);
-                }
+                if (!response.ok) throw new Error(`Status: ${response.status}`);
                 
                 const htmlContent = await response.text();
-                
-                // הזרקת התוכן ל-placeholder
                 placeholder.innerHTML = htmlContent;
 
-                // אם זה ההאדר, נפעיל את לוגיקת הקישור הפעיל
+                // Initialize header-specific logic once loaded
                 if (placeholderId === 'header-placeholder') {
                     highlightActiveLink(placeholder, currentPath);
+                    initDropdownToggle(placeholder); 
                 }
 
             } catch (error) {
-                console.error(`שגיאה בטעינת הקומפוננטה: ${filePath}`, error);
-                // רשום הודעת שגיאה ברורה ל-Placeholder
-                placeholder.innerHTML = `<div style="color: red; padding: 20px; text-align: center;">שגיאה: לא ניתן לטעון את ${filePath}. ודא שהקובץ קיים בנתיב הנכון.</div>`;
+                console.error(`Error loading ${filePath}:`, error);
             }
         }
     }
 
-    // פונקציה להדלקת הקישור הפעיל (active) בתפריט הראשי
-function highlightActiveLink(headerElement, currentPath) {
-    const navLinks = headerElement.querySelectorAll('.main-nav a');
-    
-    // ניקוי הנתיב הנוכחי: '/products/item1.html' הופך ל- 'products/item1.html'
-    const cleanedCurrentPath = currentPath.replace(/^\//, '').toLowerCase();
+    /**
+     * Handles Dropdown interactions (Click & Close on outside click)
+     */
+    function initDropdownToggle(headerElement) {
+        const dropdownLink = headerElement.querySelector('.dropdown > a');
+        const dropdownLi = headerElement.querySelector('.dropdown');
 
-    navLinks.forEach(link => {
-        const linkPath = link.getAttribute('href').replace(/^\//, '').toLowerCase();
-        
-        // 1. איפוס: ודא שאין active class שנשאר מהטענה קודמת (למרות שה-HTML מוזרק מחדש)
-        link.classList.remove('active');
-        
-        let isLinkActive = false;
+        if (dropdownLink && dropdownLi) {
+            
+            // Toggle menu on click
+            dropdownLink.addEventListener('click', (e) => {
+                e.preventDefault(); // Prevents page reload/jump
+                e.stopPropagation(); // Prevents immediate closing
+                dropdownLi.classList.toggle('menu-open');
+            });
 
-        // בדיקה 1: התאמה מלאה של הנתיב (למשל: 'about.html' == 'about.html')
-        if (cleanedCurrentPath === linkPath) {
-            isLinkActive = true;
-        } 
-        // בדיקה 2: טיפול בדף הבית (Home)
-        else if (cleanedCurrentPath === '' && (linkPath === 'index.html' || linkPath === '')) {
-            isLinkActive = true;
+            // Close menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (dropdownLi.classList.contains('menu-open')) {
+                    if (!dropdownLi.contains(e.target)) {
+                        dropdownLi.classList.remove('menu-open');
+                    }
+                }
+            });
         }
-        // בדיקה 3: התאמה סקציונלית (עבור קטלוג/דרופדאון)
-        // אם הנתיב הנוכחי מתחיל בנתיב הקישור. לדוגמה: 'products/item1.html' מתחיל ב- 'products'.
-        else if (linkPath.length > 1 && cleanedCurrentPath.startsWith(linkPath)) {
-            isLinkActive = true;
-        }
+    }
 
-        if (isLinkActive) {
-            link.classList.add('active');
-        }
+    // Highlights the current page link in the navigation
+    function highlightActiveLink(headerElement, currentPath) {
+        const navLinks = headerElement.querySelectorAll('.main-nav a');
+        const cleanedCurrentPath = currentPath.replace(/^\//, '').toLowerCase();
 
-        // 4. לוגיקת הדרופדאון (הדלקת ההורה) - נשארת כפי שהייתה, כי היא תלויה בבדיקות 1-3.
-        if (link.closest('.dropdown-menu') && link.classList.contains('active')) {
-            const dropdownToggle = link.closest('.dropdown').querySelector('.dropdown > a');
-            if (dropdownToggle) {
-                dropdownToggle.classList.add('active');
+        navLinks.forEach(link => {
+            const linkPath = link.getAttribute('href').replace(/^\//, '').toLowerCase();
+            
+            // Skip non-page links (like JS triggers)
+            if (linkPath === '#' || linkPath === '' || linkPath.includes('javascript')) return;
+
+            let isLinkActive = false;
+            
+            // Check for exact match or Homepage
+            if (cleanedCurrentPath === linkPath) isLinkActive = true;
+            else if ((cleanedCurrentPath === '' || cleanedCurrentPath === 'index.html') && linkPath.includes('homepage.html')) isLinkActive = true;
+            
+            if (isLinkActive) {
+                link.classList.add('active');
+                
+                // Highlight parent 'Catalog' if a sub-item is active
+                const parentDropdown = link.closest('.dropdown');
+                if (parentDropdown) {
+                    const dropdownMainLink = parentDropdown.querySelector('a');
+                    if (dropdownMainLink) dropdownMainLink.classList.add('active');
+                }
             }
-        }
-    });
-}
+        });
+    }
 
-    // טעינת ההאדר
     loadComponent('header-placeholder', HEADER_PATH);
-    
-    // טעינת הפוטר
     loadComponent('footer-placeholder', FOOTER_PATH);
 });
