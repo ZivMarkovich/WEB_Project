@@ -1,0 +1,280 @@
+/* ################################################################### */
+/* ABOUT PAGE SPECIFIC LAYOUT AND STYLES */
+/* ################################################################### */
+
+/* --- Hero Section: Banner and Overlay Styles --- */
+.hero-intro {
+    padding: 40px 50px 0; 
+    background-color: transparent; 
+}
+
+.banner-overlay {
+    position: relative; 
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.banner-overlay img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.overlay-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+/* --- Company Overview Section --- */
+.company-overview {
+    padding: 40px 10%;
+    text-align: right;
+    border-bottom: 1px solid #ddd;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.company-overview p {
+    max-width: 800px;
+    margin: 0 auto 20px;
+    font-size: 1.1em;
+    text-align: center;
+    color: #333;
+}
+
+/* --- Team Section: Member Cards and Grid --- */
+.team-section {
+    padding: 60px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.team-section h2 {
+    margin-bottom: 40px;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.team-member-card {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: default;
+}
+
+.team-member-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.team-member-card img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 3px solid transparent; 
+}
+
+.team-member-card h3 {
+    margin-bottom: 5px;
+    font-size: 1.4em;
+    color: var(--olive-green);
+}
+
+.team-member-card .position {
+    font-weight: bold;
+    font-size: 1em;
+    margin-bottom: 10px;
+}
+
+.team-member-card .bio {
+    font-size: 0.95em;
+    color: #555;
+}
+
+/* --- FAQ Section: Tabs and Accordion --- */
+.faq-section {
+    padding: 40px 5% 20px;  
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Navigation Tabs */
+.faq-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.tab-button {
+    background-color: var(--color-background);
+    color: #333;
+    padding: 10px 20px;
+    border: 2px solid transparent;
+    border-radius: 20px; 
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    white-space: nowrap; 
+}
+
+/* Active Tab Styling */
+.tab-button.active {
+    background-color: transparent;
+    color: var(--color-text-light);
+    border-color: transparent;
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+}
+
+.tab-button:hover:not(.active) {
+    background-color: #eee;
+    border-color: transparent;
+}
+
+/* Accordion Component */
+.accordion-container {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: right;
+    transition: opacity 0.3s ease-out, visibility 0.3s ease-out, height 0.3s ease-out;
+    visibility: visible;
+    height: auto; 
+    opacity: 1;
+}
+
+.accordion-container.hidden {
+     display: none;
+}
+
+.faq-item {
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+}
+
+.accordion-header {
+    width: 100%;
+    padding: 18px 25px;
+    background-color: #fff;
+    border: none;
+    text-align: right;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.accordion-header::after {
+    content: '+';
+    font-size: 1.5em;
+    transition: transform 0.3s;
+    line-height: 1; 
+}
+
+.accordion-header[aria-expanded="true"]::after {
+    content: '−';
+    transform: rotate(180deg);
+}
+
+.accordion-content {
+    padding: 0 25px;
+    max-height: 0; 
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    background-color: #f9f9f9;
+}
+
+.accordion-content p {
+    padding: 15px 0;
+    margin: 0;
+    color: #555;
+    font-size: 1em;
+}
+
+/* ################################################################### */
+/* Media Queries – Responsiveness */
+/* ################################################################### */
+
+/* Small Desktop / Laptop (901px–1200px) */
+@media (min-width: 901px) and (max-width: 1200px) {
+    .overlay-text h1 {
+        font-size: 2.2rem;
+    }
+
+    .company-overview {
+        padding: 40px 8%;
+    }
+
+    .accordion-container {
+        max-width: 850px;
+    }
+
+    .tab-button {
+        padding: 10px 18px;
+        font-size: 0.95rem;
+    }
+}
+
+/* Tablet (601px–900px) */
+@media (min-width: 601px) and (max-width: 900px) {
+    .hero-intro {
+        padding: 30px 20px 0;
+    }
+
+    .hero-intro .banner-overlay {
+        height: 300px;
+    }
+}
+
+/* Mobile (Max 600px) */
+@media (max-width: 600px) {
+    .hero-intro {
+        padding: 15px 10px 0;
+    }
+
+    .hero-intro .banner-overlay {
+        height: 200px;
+    }
+
+    .hero-intro .overlay-text h1 {
+        font-size: 1.5rem; 
+        padding: 0 15px; 
+        text-align: center;
+    }
+
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+}

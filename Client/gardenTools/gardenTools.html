@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title> צומחים יחד | כלי עבודה</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="/Client/global.css">
+  <link rel="stylesheet" href="/Client/gardenTools/gardenTools.css">
+</head>
+
+<body>
+
+  <div id="header-placeholder"></div>
+
+  <main>
+    <section class="hero-intro">
+      <div class="banner-overlay">
+        <img src="/Client/gardenTools/images/gloves2.jpg" alt="כלי עבודה לגינה">
+        <div class="overlay-text">
+          <h1>צעד אחר צעד לגינה מטופחת</h1>
+        </div>
+      </div>
+    </section>
+
+    <section class="gardenTools-intro">
+      <div class="content-wrapper">
+        <h2>כלים שיעשו את העבודה קלה יותר</h2>
+        <p>
+          כאן תוכלו למצוא כלי עבודה שימושיים לגינה ולמרפסת.
+        </p>
+
+        <div class="gardenTools-search">
+          <label class="visually-hidden" for="gardenTools-search-input">חיפוש כלי עבודה</label>
+          <input id="gardenTools-search-input" type="text"
+            placeholder="חפשו לפי שם או תיאור (לדוגמה: מזמרה, כפפות, את...)" autocomplete="off">
+          <div class="gardenTools-search-meta">
+            <span id="gardenTools-results-count"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="gardenTools-section">
+
+      <div class="gardenTools-grid" id="gardenTools-grid">
+      </div>
+
+      <p class="no-results" id="gardenTools-no-results" hidden>
+        לא נמצאו תוצאות. נסו מילה אחרת 🙂
+      </p>
+    </section>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <div class="stock-modal-backdrop" id="stock-modal" hidden>
+    <div class="stock-modal" role="dialog" aria-modal="true" aria-label="בדיקת זמינות">
+      <h3>בדיקת זמינות</h3>
+      <p class="modal-subtitle" id="stock-modal-subtitle"></p>
+
+      <form id="stock-modal-form" novalidate>
+        <label>
+          כמות:
+          <input id="stock-modal-qty" type="number" inputmode="numeric" min="1" step="1" required
+            placeholder="לדוגמה: 3" />
+        </label>
+        <div class="stock-error" id="stock-modal-error" aria-live="polite"></div>
+        <div class="modal-actions">
+          <button type="submit" class="check-stock-btn">בדוק זמינות</button>
+          <button type="button" class="close-modal-btn" id="stock-modal-close">סגור</button>
+        </div>
+        <div class="stock-result" id="stock-modal-result" aria-live="polite"></div>
+      </form>
+    </div>
+  </div>
+
+  <script src="/Client/global.js"></script>
+  <script src="/Client/gardenTools/gardenTools.js"></script>
+</body>
+
+</html>

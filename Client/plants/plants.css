@@ -1,0 +1,394 @@
+/* ################################################################### */
+/* PLANTS PAGE - CATALOG STYLES */
+/* ################################################################### */
+
+
+/* --- HERO SECTION (Top banner) --- */
+.hero-intro {
+  padding: 40px 50px 0;
+  background-color: transparent;
+}
+
+.banner-overlay {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.banner-overlay img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Dark overlay layer so the title stays readable */
+.overlay-text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+
+/* --- INTRO SECTION (Title + short explanation) --- */
+.plants-intro {
+  padding: 40px 10%;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.plants-intro p {
+  max-width: 800px;
+  margin: 0 auto 0;
+  font-size: 1.1em;
+  line-height: 1.8;
+}
+
+
+/* --- SEARCH BAR (Filters the cards with JS) --- */
+.plants-search {
+  margin: 24px auto 0;
+  max-width: 700px;
+  text-align: center;
+}
+
+.plants-search input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid #ddd;
+  border-radius: 25px;
+  font-size: 1em;
+  outline: none;
+  transition: border-color 0.25s, box-shadow 0.25s;
+  font-family: inherit;
+}
+
+/* Focus style (clear highlight when typing) */
+.plants-search input:focus {
+  border-color: var(--olive-green);
+  box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.06);
+}
+
+/* Result counter below the search input */
+.plants-search-meta {
+  margin-top: 10px;
+  color: #555;
+  font-size: 0.95em;
+}
+
+
+/* --- GRID LAYOUT (Catalog cards container) --- */
+.plants-section {
+  padding: 60px 5%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.plants-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+
+/* --- CARD DESIGN (One plant item) --- */
+.plant-card {
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s, box-shadow 0.3s;
+
+  /* Makes the caption able to push the button to the bottom */
+  display: flex;
+  flex-direction: column;
+}
+
+.plant-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.plant-image img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Caption uses flex so the button can sit at the bottom */
+.plant-caption {
+  border-top: 3px solid var(--olive-green);
+  background-color: #fff;
+  padding: 14px 14px 16px;
+  text-align: right;
+
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.plant-caption h3 {
+  margin: 0 0 8px;
+  font-size: 1.15em;
+  color: var(--olive-green);
+}
+
+.plant-caption p {
+  margin: 0;
+  font-size: 0.95em;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Message shown when no cards match the search */
+.no-results {
+  margin-top: 26px;
+  text-align: center;
+  color: #555;
+  font-size: 1.05em;
+}
+
+/* Accessibility helper: hidden text for screen readers */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+
+/* --- STOCK BUTTON (Added by JS into each card) --- */
+.stock-toggle-btn {
+  width: 100%;
+  margin-top: 12px;
+  padding: 10px 12px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: var(--olive-green);
+  color: #fff;
+  font-weight: 700;
+  transition: transform 0.15s ease, opacity 0.2s ease;
+}
+
+.stock-toggle-btn:hover {
+  transform: translateY(-1px);
+  opacity: 0.95;
+}
+
+/* Pushes the "Check stock" button to the bottom of the caption */
+.plant-caption .stock-toggle-btn {
+  margin-top: auto;
+}
+
+
+/* ################################################################### */
+/* STOCK MODAL (Availability popup) */
+/* ################################################################### */
+
+.stock-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  z-index: 9999;
+}
+
+.stock-modal {
+  width: min(720px, 95vw);
+  background: #fff;
+  border-radius: 14px;
+  padding: 28px 30px;
+  box-shadow: 0 16px 50px rgba(0, 0, 0, 0.25);
+}
+
+.stock-modal h3 {
+  margin: 0 0 6px;
+  font-size: 28px;
+  color: #222;
+}
+
+.modal-subtitle {
+  margin: 0 0 18px;
+  color: #666;
+  font-size: 16px;
+}
+
+#stock-modal-form label {
+  display: block;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+#stock-modal-qty {
+  width: 100%;
+  margin-top: 10px;
+  padding: 14px 16px;
+  border: 2px solid #ddd;
+  border-radius: 12px;
+  font-size: 16px;
+  outline: none;
+  font-family: inherit;
+  text-align: right;
+}
+
+#stock-modal-qty:focus {
+  border-color: var(--olive-green);
+  box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.06);
+}
+
+/* Error text line (keeps layout stable) */
+.stock-error {
+  min-height: 18px;
+  margin: 10px 0 0;
+  color: #b00020;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* Buttons row inside the modal */
+.modal-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 22px;
+}
+
+.modal-actions button {
+  border: none;
+  border-radius: 12px;
+  padding: 12px 18px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 0.15s ease, opacity 0.2s ease;
+  font-family: inherit;
+  min-width: 160px;
+}
+
+.modal-actions button:hover {
+  transform: translateY(-1px);
+  opacity: 0.95;
+}
+
+/* Main action button */
+.check-stock-btn {
+  background: var(--olive-green);
+  color: #fff;
+}
+
+/* Close button */
+.close-modal-btn {
+  background: #e9e9e9;
+  color: #333;
+}
+
+/* Result text line */
+.stock-result {
+  margin-top: 14px;
+  font-weight: 700;
+  color: #2e7d32;
+  min-height: 18px;
+}
+
+
+/* ################################################################### */
+/* RESPONSIVENESS - PLANTS PAGE (Identical to Services & Tools) */
+/* ################################################################### */
+
+/* 1. Small Laptops & Large Tablets (901px - 1200px) */
+@media (min-width: 901px) and (max-width: 1200px) {
+  .overlay-text h1 { 
+    font-size: 2.2rem;
+  }
+
+  .plants-intro { 
+    padding: 34px 10%; 
+  }
+
+  .plants-grid { 
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 22px; 
+  }
+}
+
+/* 2. Tablets (601px - 900px) */
+@media (min-width: 601px) and (max-width: 900px) {
+  .hero-intro { 
+    padding: 30px 20px 0; 
+  }
+
+  .banner-overlay { 
+    height: 300px;
+  }
+
+  .overlay-text h1 { 
+    font-size: 32px; 
+  }
+
+  .plants-grid { 
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 18px; 
+  }
+
+  .plant-image img { 
+    height: 200px; 
+  }
+}
+
+/* 3. Mobile (Max 600px) */
+@media (max-width: 600px) {
+  .hero-intro { 
+    padding: 15px 10px 0; 
+  }
+
+  .banner-overlay { 
+    height: 200px;
+    width: 100%; 
+    margin: 0 auto;
+    border-radius: 8px;
+    display: block;
+  }
+
+  .overlay-text h1 { 
+    font-size: 1.5rem;
+    padding: 0 15px; 
+    text-align: center; 
+  }
+
+  .plants-grid { 
+    grid-template-columns: 1fr; 
+    gap: 16px; 
+  }
+
+  .plant-image img { 
+    height: 210px; 
+  }
+
+  /* Modal adjustments for small screens */
+  .stock-modal { padding: 20px; }
+  .modal-actions { flex-direction: column; }
+  .modal-actions button { width: 100%; min-width: unset; }
+}
+
+/* --- FUNCTIONAL RULES --- */
+.plant-card[hidden] { display: none; }
+#stock-modal[hidden] { display: none; }

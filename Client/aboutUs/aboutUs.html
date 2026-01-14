@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>צומחים יחד </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/Client/global.css">
+    <link rel="stylesheet" href="/Client/aboutUs/aboutUs.css">
+</head>
+
+
+<body>
+
+
+    <!-- Dynamic Header Loading Placeholder -->
+    <div id="header-placeholder"></div>
+
+
+    <main>
+        <section class="hero-intro">
+            <div class="banner-overlay">
+                <img src="/Client/aboutUs/images_aboutUs/aboutUs_banner.png" alt="נוף גינה ירוק ופורח">
+                <div class="overlay-text">
+                    <h1>מעניקים חיים חדשים לכל פינה בגינה</h1>
+                </div>
+            </div>
+        </section>
+
+
+
+
+        <!-- Company Introduction: Mission and vision statement -->
+        <section class="company-overview">
+            <div class="content-wrapper">
+                <h2>מי אנחנו</h2>
+                <p>
+                    <strong>"צומחים יחד" </strong>
+                    היא חברה מקצועית לגינון, תחזוקת שטחים פתוחים והתחדשות נוף. <br>
+                    אנו פועלים באזור השרון, דן והשפלה
+                    ומתמחים בהקמת גינות, תחזוקה מלאה לבתים פרטיים, חברות ניהול ומלונות.
+                    השירותים שלנו כוללים הקמות גינה מאפס, התקנת מערכות השקיה, טיפול בצמחייה קיימת, דשא סינטטי, ריסוס,
+                    שתילות עונתיות, הדמיות, שדרוגים נרחבים ועוד הרבה שירותים נוספים.
+                    <br><strong>🌿 הגישה שלנו מבוססת על שירות אישי, אחריות מלאה ושקט ללקוח - משלב התכנון ועד
+                        הביצוע🌿</strong>
+
+
+                </p>
+            </div>
+        </section>
+
+
+        <!-- Team Section: Grid layout for staff profiles -->
+        <section class="team-section">
+            <h2>הכירו את הצוות שלנו</h2>
+            <div class="team-grid">
+
+
+                <div class="team-member-card" data-member-id="1">
+                    <img src="/Client/aboutUs/images_aboutUs/Bar.jpg" alt="תמונת פרופיל של בר">
+                    <h3>בר</h3>
+                    <p class="position">מייסד ומומחה גינון ראשי</p>
+                    <p class="bio">
+                        אחראי על הליווי המקצועי של כל הפרויקטים והביצוע בשטח.<br>
+                        מתמחה בתחזוקת שטחים פתוחים והקמת גינות
+                        מאפס.
+                    </p>
+                </div>
+
+
+                <div class="team-member-card" data-member-id="2">
+                    <img src="/Client/aboutUs/images_aboutUs/Roie.png" alt="תמונת פרופיל של רועי">
+                    <h3>רועי</h3>
+                    <p class="position">תכנון ופיתוח נוף</p>
+                    <p class="bio">
+                        מוביל את תחום התכנון והעיצוב בחברה.<br>
+                        מתמחה ביצירת סקיצות מפורטות, הדמיות תלת-ממד מתקדמות<br>
+                        ובבניית
+                        תוכניות אב פונקציונליות ואסתטיות לכל סוגי הפרויקטים.
+                    </p>
+                </div>
+
+
+                <div class="team-member-card" data-member-id="3">
+                    <img src="/Client/aboutUs/images_aboutUs/Matan.jpg" alt="תמונת פרופיל של מתן">
+                    <h3>מתן</h3>
+                    <p class="position">מומחה מערכות השקיה ואחזקה</p>
+                    <p class="bio">
+                        אחראי על התקנה ושימור של מערכות השקיה חכמות<br>
+                        ועל הטיפול הממוקד בצמחייה (ריסוס ושתילות עונתיות).
+                    </p>
+                </div>
+
+
+                <div class="team-member-card" data-member-id="4">
+                    <img src="/Client/aboutUs/images_aboutUs/Ofir.png" alt="תמונת פרופיל של אופיר">
+                    <h3>אופיר</h3>
+                    <p class="position">מומחה לאדריכלות נוף</p>
+                    <p class="bio">
+                        מומחה לתכנון ועיצוב.<br>
+                        מביא גישה חדשנית ומתקדמת ליצירת פתרונות נוף אסתטיים ופרקטיים. </p>
+                </div>
+
+
+            </div>
+        </section>
+
+
+
+
+        <!-- FAQ Navigation Tabs: Used for switching categories via JS -->
+        <section class="faq-section">
+            <h2>שאלות נפוצות</h2>
+
+
+            <div class="faq-tabs">
+                <button class="tab-button active" data-target="private">🏡 לקוחות פרטיים</button>
+                <button class="tab-button hidden" data-target="committees">🏢בניינים וועדי בתים</button>
+                <button class="tab-button hidden" data-target="management">🏙 חברות ניהול ומלונות</button>
+            </div>
+
+
+
+
+            <!-- FAQ Accordion: Interactive question and answer logic -->
+            <div class="accordion-container active" id="private">
+
+
+                <div class="faq-item" data-faq-id="p1">
+                    <button class="accordion-header" aria-expanded="false" aria-controls="faq-ans-p1">
+                        יש לי גינה קטנה, אתם מטפלים גם בה?
+                    </button>
+                    <div id="faq-ans-p1" class="accordion-content">
+                        <p>
+                            כן. אנחנו מטפלים בגינות קטנות כולל ניקיון, גיזום, שתילות וטיפול בהשקיה.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="faq-item" data-faq-id="p2">
+                    <button class="accordion-header" aria-expanded="false" aria-controls="faq-ans-p2">
+                        ומה לגבי גינה גדולה?
+                    </button>
+                    <div id="faq-ans-p2" class="accordion-content">
+                        <p>
+                            מתאים לנו מאוד. מבצעים תחזוקה מלאה ושדרוגים גם בגינות גדולות ומורכבות.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="faq-item" data-faq-id="p3">
+                    <button class="accordion-header" aria-expanded="false" aria-controls="faq-ans-p3">
+                        אפשר להזמין עבודה חד פעמית?
+                    </button>
+                    <div id="faq-ans-p3" class="accordion-content">
+                        <p>
+                            כן. שתילות, גיזומים, ניקוי עומק ושדרוגים - חד פעמיים או קבועים.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="faq-item" data-faq-id="p4">
+                    <button class="accordion-header" aria-expanded="false" aria-controls="faq-ans-p4">
+                        אתם מביאים את כל הציוד והצמחים?
+                    </button>
+                    <div id="faq-ans-p4" class="accordion-content">
+                        <p>
+                            בוודאי. אנחנו מביאים הכול: צמחים, אדמה, ציוד וחומרים.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="faq-item" data-faq-id="p5">
+                    <button class="accordion-header" aria-expanded="false" aria-controls="faq-ans-p5">
+                        מה כולל שירות תחזוקה קבוע?
+                    </button>
+                    <div id="faq-ans-p5" class="accordion-content">
+                        <p>
+                            ניקיון, גיזום, כיסוח/טיפול בדשא, בדיקת השקיה, עשבייה ודיווח עם תמונות.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="faq-item" data-faq-id="p6">
+                    <button class="accordion-header" aria-expanded="false" aria-controls="faq-ans-p6">
+                        יש אחריות על העבודה?
+                    </button>
+                    <div id="faq-ans-p6" class="accordion-content">
+                        <p>
+                            כן- בהתאם לסוג העבודה והשתילה שבוצעה.
+                        </p>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="accordion-container hidden" id="committees">
+
+
+                <div class="faq-item" data-faq-id="c1">
+                    <button class="accordion-header" aria-expanded="false" aria-controls="faq-ans-c1">
+                        אתם מתחזקים בניין באופן קבוע?
+                    </button>
+                    <div id="faq-ans-c1" class="accordion-content">
+                        <p>
+                            כן. תחזוקה שוטפת: ניקיון, השקיה, דשא, גיזומים ועשבייה.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="faq-item" data-faq-id="c2">
+                    <button class="accordion-header" aria-expanded="false" aria-controls="faq-ans-c2">
+                        אנחנו מקבלים עדכון אחרי כל ביצוע?
+                    </button>
+                    <div id="faq-ans-c2" class="accordion-content">
+                        <p>
+                            כן- כל עבודה מתועדת עם תמונות ודיווח מסודר.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="faq-item" data-faq-id="c3">
+                    <button class="accordion-header" aria-expanded="false" aria-controls="faq-ans-c3">
+                        אתם מטפלים גם בתקלות קטנות?
+                    </button>
+                    <div id="faq-ans-c3" class="accordion-content">
+                        <p>
+                            בוודאי. נזילות השקיה, נקיון נקודתי, חיזוקים ופתרון בעיות.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="faq-item" data-faq-id="c4">
+                    <button class="accordion-header" aria-expanded="false" aria-controls="faq-ans-c4">
+                        אפשר לשלב שדרוגים במהלך השנה?
+                    </button>
+                    <div id="faq-ans-c4" class="accordion-content">
+                        <p>
+                            כן. שתילות עונתיות, חיפויים, אבני מדרך ושיקום אזורים.
+                        </p>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="accordion-container hidden" id="management">
+
+
+                <div class="faq-item" data-faq-id="m1">
+                    <button class="accordion-header" aria-expanded="false" aria-controls="faq-ans-m1">
+                        אתם עובדים עם חברות ניהול גדולות?
+                    </button>
+                    <div id="faq-ans-m1" class="accordion-content">
+                        <p>
+                            כן. מתחזקים מספר מתחמים במקביל וערוכים לעבודה חוזרת וקבועה.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="faq-item" data-faq-id="m2">
+                    <button class="accordion-header" aria-expanded="false" aria-controls="faq-ans-m2">
+                        יש לכם תיעוד ובקרה?
+                    </button>
+                    <div id="faq-ans-m2" class="accordion-content">
+                        <p>
+                            כן. כל משימה מצולמת ומתועדת- לפני ואחרי.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="faq-item" data-faq-id="m3">
+                    <button class="accordion-header" aria-expanded="false" aria-controls="faq-ans-m3">
+                        אפשר לקבל תחזוקה שוטפת + עבודות מיוחדות?
+                    </button>
+                    <div id="faq-ans-m3" class="accordion-content">
+                        <p>
+                            כן. תחזוקה שוטפת + פרויקטים כמו שתילות, שיקום, דשא, חיפוי והשקיה.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="faq-item" data-faq-id="m4">
+                    <button class="accordion-header" aria-expanded="false" aria-controls="faq-ans-m4">
+                        כמה מתחמים אתם יכולים להחזיק במקביל?
+                    </button>
+                    <div id="faq-ans-m4" class="accordion-content">
+                        <p>
+                            יש לנו שני קווי עבודה ואנחנו מתרחבים- יכולים לטפל במספר רב של מתחמים.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="faq-item" data-faq-id="m5">
+                    <button class="accordion-header" aria-expanded="false" aria-controls="faq-ans-m5">
+                        זמינות לתקלות פתאומיות?
+                    </button>
+                    <div id="faq-ans-m5" class="accordion-content">
+                        <p>
+                            כן. זמינים בטלפון ובוואטסאפ לזמינות מיידית.
+                        </p>
+                    </div>
+                </div>
+
+
+            </div>
+        </section>
+    </main>
+
+
+    <div id="footer-placeholder"></div>
+
+
+    <script src="/Client/global.js"></script>
+    <script src="/Client/aboutUs/aboutUs.js"></script>
+</body>
+
+
+</html>
